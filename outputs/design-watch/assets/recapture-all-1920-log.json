@@ -19,21 +19,9 @@
   },
   {
     "id": "tsherpa",
-    "ok": true,
+    "ok": false,
     "cleanFile": "tsherpa-full-clean.png",
-    "legacyFile": "tsherpa-full.png",
-    "closed": [
-      "main-pop-close"
-    ],
-    "state": {
-      "title": "T셀파 초등 - 오직 선생님만을 위한 교수학습 무료지원",
-      "href": "https://ele.tsherpa.co.kr/",
-      "viewportWidth": 1920,
-      "viewportHeight": 1080,
-      "scrollWidth": 1920,
-      "scrollHeight": 2137,
-      "visibleDialogs": 0
-    }
+    "error": "page.goto: Timeout 60000ms exceeded.\nCall log:\n  - navigating to \"https://ele.tsherpa.co.kr/\", waiting until \"domcontentloaded\"\n"
   },
   {
     "id": "mteacher",
@@ -94,19 +82,9 @@
   },
   {
     "id": "tsherpa-secondary",
-    "ok": true,
+    "ok": false,
     "cleanFile": "tsherpa-secondary-full-clean.png",
-    "legacyFile": "tsherpa-secondary-full.png",
-    "closed": [],
-    "state": {
-      "title": "T셀파 중고등 - 오직 선생님만을 위한 교수학습 무료지원",
-      "href": "https://mh.tsherpa.co.kr/",
-      "viewportWidth": 1920,
-      "viewportHeight": 1080,
-      "scrollWidth": 1920,
-      "scrollHeight": 2423,
-      "visibleDialogs": 0
-    }
+    "error": "page.goto: Timeout 60000ms exceeded.\nCall log:\n  - navigating to \"https://mh.tsherpa.co.kr/\", waiting until \"domcontentloaded\"\n"
   },
   {
     "id": "mteacher-middle",
