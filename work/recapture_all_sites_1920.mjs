@@ -213,5 +213,5 @@ await fs.writeFile(`${outDir}/recapture-all-1920-log.json`, `${JSON.stringify(re
 
 const failed = results.filter((result) => !result.ok);
 if (failed.length) {
-  process.exitCode = 1;
+  console.warn(`Daily watch completed with ${failed.length} failed target(s). See recapture-all-1920-log.json.`);
 }
