@@ -1,0 +1,38 @@
+name: Daily Design Watch
+
+on:
+  schedule:
+    # 09:00 Asia/Seoul
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install browser
+        run: npx playwright install --with-deps chromium
+
+      - name: Capture watched sites
+        run: npm run capture:daily
+
+      - name: Commit capture updates
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Daily design watch capture"
+          file_pattern: outputs/design-watch/assets/*.png outputs/design-watch/assets/*.json

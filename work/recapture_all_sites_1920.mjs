@@ -1,10 +1,8 @@
-import { createRequire } from "node:module";
+import path from "node:path";
 import fs from "node:fs/promises";
+import { chromium } from "playwright";
 
-const require = createRequire("/Users/webdesign/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/");
-const { chromium } = require("playwright");
-
-const outDir = "/Users/webdesign/Documents/Codex/2026-07-02/new-chat/outputs/design-watch/assets";
+const outDir = path.resolve(process.cwd(), "outputs/design-watch/assets");
 const targets = [
   {
     id: "vivasam",
@@ -199,10 +197,7 @@ async function captureTarget(browser, target) {
   }
 }
 
-const browser = await chromium.launch({
-  headless: true,
-  executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
-});
+const browser = await chromium.launch({ headless: true });
 
 const results = [];
 try {
