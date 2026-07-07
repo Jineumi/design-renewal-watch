@@ -1,0 +1,14 @@
+.DS_Store
+
+# Local Netlify state
+.netlify/
+
+# Generated local caches
+work/swift-module-cache/
+work/pdf-rendered/
+work/site-shots/
+work/*.png
+
+# Runtime logs
+*.log
+npm-debug.log*

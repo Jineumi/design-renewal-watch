@@ -1,0 +1,30 @@
+[
+  {
+    "id": "mteacher-middle",
+    "file": "mteacher-middle-full-clean.png",
+    "closed": [],
+    "state": {
+      "title": "엠티처 중학-미래엔교수활동플랫폼",
+      "href": "https://m.m-teacher.co.kr/pages/mid/Main.mrn",
+      "viewportWidth": 1920,
+      "viewportHeight": 1080,
+      "scrollWidth": 1920,
+      "scrollHeight": 2161,
+      "menuLike": 0
+    }
+  },
+  {
+    "id": "mteacher-high",
+    "file": "mteacher-high-full-clean.png",
+    "closed": [],
+    "state": {
+      "title": "엠티처 고등-미래엔교수활동플랫폼",
+      "href": "https://h.m-teacher.co.kr/pages/high/Main.mrn",
+      "viewportWidth": 1920,
+      "viewportHeight": 1080,
+      "scrollWidth": 1920,
+      "scrollHeight": 2161,
+      "menuLike": 0
+    }
+  }
+]

@@ -1,0 +1,175 @@
+[
+  {
+    "id": "vivasam",
+    "ok": true,
+    "cleanFile": "vivasam-full-clean.png",
+    "legacyFile": "vivasam-full.png",
+    "closed": [
+      "7일간 보지 않기 popBtn btnPopcloseNoMore"
+    ],
+    "state": {
+      "title": "초등 비바샘 - 선생님과 함께 만들어가는 즐거운 수업",
+      "href": "https://e.vivasam.com/main",
+      "viewportWidth": 1920,
+      "viewportHeight": 1080,
+      "scrollWidth": 1920,
+      "scrollHeight": 2097,
+      "visibleDialogs": 0
+    }
+  },
+  {
+    "id": "tsherpa",
+    "ok": true,
+    "cleanFile": "tsherpa-full-clean.png",
+    "legacyFile": "tsherpa-full.png",
+    "closed": [
+      "main-pop-close"
+    ],
+    "state": {
+      "title": "T셀파 초등 - 오직 선생님만을 위한 교수학습 무료지원",
+      "href": "https://ele.tsherpa.co.kr/",
+      "viewportWidth": 1920,
+      "viewportHeight": 1080,
+      "scrollWidth": 1920,
+      "scrollHeight": 2137,
+      "visibleDialogs": 0
+    }
+  },
+  {
+    "id": "mteacher",
+    "ok": true,
+    "cleanFile": "mteacher-full-clean.png",
+    "legacyFile": "mteacher-full.png",
+    "closed": [
+      "닫기 button size-md type-white closePop"
+    ],
+    "state": {
+      "title": "엠티처 초등-미래엔교수활동플랫폼",
+      "href": "https://e.m-teacher.co.kr/pages/ele/Main.mrn",
+      "viewportWidth": 1920,
+      "viewportHeight": 1080,
+      "scrollWidth": 1920,
+      "scrollHeight": 2401,
+      "visibleDialogs": 0
+    }
+  },
+  {
+    "id": "jihak",
+    "ok": true,
+    "cleanFile": "jihak-full-clean.png",
+    "legacyFile": "jihak-full.png",
+    "closed": [],
+    "state": {
+      "title": "지학사 수업지원플랫폼｜티솔루션",
+      "href": "https://tsol.jihak.co.kr/main.ez?schoolTypeSeq=SUBJECT_SCHOOLTYPE_ELEMENTARY",
+      "viewportWidth": 1920,
+      "viewportHeight": 1080,
+      "scrollWidth": 1920,
+      "scrollHeight": 4327,
+      "visibleDialogs": 0
+    }
+  },
+  {
+    "id": "vivasam-secondary",
+    "ok": true,
+    "cleanFile": "vivasam-secondary-full-clean.png",
+    "legacyFile": "vivasam-secondary-full.png",
+    "closed": [
+      "btn_close",
+      "btn_close",
+      "btn_close",
+      "btn_close",
+      "btn_close",
+      "btn_close"
+    ],
+    "state": {
+      "title": "중고등 비바샘 | 선생님과 함께 만들어가는 즐거운 수업",
+      "href": "https://v.vivasam.com/main.do",
+      "viewportWidth": 1920,
+      "viewportHeight": 1080,
+      "scrollWidth": 1920,
+      "scrollHeight": 1748,
+      "visibleDialogs": 0
+    }
+  },
+  {
+    "id": "tsherpa-secondary",
+    "ok": true,
+    "cleanFile": "tsherpa-secondary-full-clean.png",
+    "legacyFile": "tsherpa-secondary-full.png",
+    "closed": [],
+    "state": {
+      "title": "T셀파 중고등 - 오직 선생님만을 위한 교수학습 무료지원",
+      "href": "https://mh.tsherpa.co.kr/",
+      "viewportWidth": 1920,
+      "viewportHeight": 1080,
+      "scrollWidth": 1920,
+      "scrollHeight": 2423,
+      "visibleDialogs": 0
+    }
+  },
+  {
+    "id": "mteacher-middle",
+    "ok": true,
+    "cleanFile": "mteacher-middle-full-clean.png",
+    "legacyFile": "mteacher-middle-full.png",
+    "closed": [],
+    "state": {
+      "title": "엠티처 중학-미래엔교수활동플랫폼",
+      "href": "https://m.m-teacher.co.kr/pages/mid/Main.mrn",
+      "viewportWidth": 1920,
+      "viewportHeight": 1080,
+      "scrollWidth": 1920,
+      "scrollHeight": 2161,
+      "visibleDialogs": 0
+    }
+  },
+  {
+    "id": "mteacher-high",
+    "ok": true,
+    "cleanFile": "mteacher-high-full-clean.png",
+    "legacyFile": "mteacher-high-full.png",
+    "closed": [],
+    "state": {
+      "title": "엠티처 고등-미래엔교수활동플랫폼",
+      "href": "https://h.m-teacher.co.kr/pages/high/Main.mrn",
+      "viewportWidth": 1920,
+      "viewportHeight": 1080,
+      "scrollWidth": 1920,
+      "scrollHeight": 2161,
+      "visibleDialogs": 0
+    }
+  },
+  {
+    "id": "jihak-middle",
+    "ok": true,
+    "cleanFile": "jihak-middle-full-clean.png",
+    "legacyFile": "jihak-middle-full.png",
+    "closed": [],
+    "state": {
+      "title": "지학사 수업지원플랫폼｜티솔루션",
+      "href": "https://tsol.jihak.co.kr/main.ez?schoolTypeSeq=SUBJECT_SCHOOLTYPE_MIDDLE",
+      "viewportWidth": 1920,
+      "viewportHeight": 1080,
+      "scrollWidth": 1920,
+      "scrollHeight": 3110,
+      "visibleDialogs": 0
+    }
+  },
+  {
+    "id": "jihak-high",
+    "ok": true,
+    "cleanFile": "jihak-high-full-clean.png",
+    "legacyFile": "jihak-high-full.png",
+    "closed": [],
+    "state": {
+      "title": "지학사 수업지원플랫폼｜티솔루션",
+      "href": "https://tsol.jihak.co.kr/main.ez?schoolTypeSeq=SUBJECT_SCHOOLTYPE_HIGH",
+      "viewportWidth": 1920,
+      "viewportHeight": 1080,
+      "scrollWidth": 1920,
+      "scrollHeight": 3110,
+      "visibleDialogs": 0
+    }
+  }
+]

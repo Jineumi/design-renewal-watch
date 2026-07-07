@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Edu UI Watch</title>
+    <link rel="stylesheet" href="./styles.css?v=dailyreport1" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div class="brand-block">
+          <div class="brand-mark">EW</div>
+          <div>
+            <p class="eyebrow" id="platformEyebrow">Teaching support platforms</p>
+            <h1>Design Renewal Watch</h1>
+          </div>
+        </div>
+        <div class="top-actions">
+          <label class="search">
+            <span class="icon icon-search"></span>
+            <input id="searchInput" type="search" placeholder="사이트, 브랜드, 변경 포인트 검색" />
+          </label>
+          <button class="primary-action" id="newSurveyButton" type="button">
+            <span class="icon icon-plus"></span>
+            <span>새 조사</span>
+          </button>
+        </div>
+      </header>
+
+      <section class="list-view" id="listView">
+        <section class="content-grid">
+          <section class="update-alerts" id="updateAlerts" aria-label="업데이트 알림"></section>
+
+          <div class="filter-panel" aria-label="사이트 목록 필터">
+            <div class="school-tabs" role="tablist" aria-label="학교급">
+              <button class="is-active" type="button" role="tab" aria-selected="true" data-school-tab="elementary">초등</button>
+              <button type="button" role="tab" aria-selected="false" data-school-tab="secondary">중·고등</button>
+            </div>
+          </div>
+          <div class="cards-grid" id="siteGrid" aria-label="Site list"></div>
+        </section>
+      </section>
+
+      <section class="detail-view is-hidden" id="detailView" aria-label="Site detail"></section>
+    </main>
+
+    <div class="modal-backdrop is-hidden" id="surveyModal" role="dialog" aria-modal="true" aria-labelledby="surveyTitle">
+      <form class="survey-modal" id="surveyForm">
+        <div class="modal-head">
+          <div>
+            <p class="eyebrow">Renewal record</p>
+            <h2 id="surveyTitle">새 조사 기록</h2>
+          </div>
+          <button class="icon-button" id="closeSurveyButton" type="button" aria-label="닫기">
+            <span class="icon icon-close"></span>
+          </button>
+        </div>
+
+        <div class="form-grid">
+          <label>
+            <span>사이트</span>
+            <select id="surveySite"></select>
+          </label>
+          <label>
+            <span>조사일</span>
+            <input id="surveyDate" type="date" required />
+          </label>
+          <label>
+            <span>기록 상태</span>
+            <select id="surveyStatus">
+              <option>변경 감지</option>
+              <option>검토 필요</option>
+              <option>업데이트 완료</option>
+              <option>제외 처리</option>
+              <option>Baseline</option>
+            </select>
+          </label>
+          <label>
+            <span>변경 유형</span>
+            <select id="surveyChangeType">
+              <option>구조 변경</option>
+              <option>디자인 시스템 변경</option>
+              <option>핵심 기능 진입 변경</option>
+              <option>제외 대상</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="field-full">
+          <span>변경 영역</span>
+          <input id="surveyArea" type="text" placeholder="예: Home IA / Quick Tools" required />
+        </label>
+
+        <div class="form-grid two">
+          <label>
+            <span>As-is</span>
+            <textarea id="surveyAsis" rows="4" placeholder="현재 또는 이전 구조를 적어주세요." required></textarea>
+          </label>
+          <label>
+            <span>To-be</span>
+            <textarea id="surveyTobe" rows="4" placeholder="변경된 구조나 개선 방향을 적어주세요." required></textarea>
+          </label>
+        </div>
+
+        <label class="field-full">
+          <span>Memo</span>
+          <textarea id="surveyMemo" rows="3" placeholder="왜 기록할 가치가 있는지, 제외 기준에 걸리지 않는지 적어주세요."></textarea>
+        </label>
+
+        <div class="modal-policy">
+          <strong>기록 기준</strong>
+          <p>배너/썸네일/문구만 바뀐 경우는 제외하고, 레이아웃·컴포넌트·진입 구조가 바뀐 경우만 히스토리에 남깁니다.</p>
+        </div>
+
+        <div class="modal-actions">
+          <button class="secondary-action" id="cancelSurveyButton" type="button">취소</button>
+          <button class="primary-action" type="submit">기록 추가</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="capture-modal-backdrop is-hidden" id="captureModal" role="dialog" aria-modal="true" aria-labelledby="captureModalTitle">
+      <section class="capture-modal">
+        <header class="capture-modal-head">
+          <div>
+            <p class="eyebrow">Baseline capture</p>
+            <h2 id="captureModalTitle">기준 화면</h2>
+            <p id="captureModalMeta">관찰 범위</p>
+          </div>
+          <button class="icon-button" id="closeCaptureModalButton" type="button" aria-label="닫기">
+            <span class="icon icon-close"></span>
+          </button>
+        </header>
+        <div class="capture-modal-body">
+          <img id="captureModalImage" alt="" />
+        </div>
+      </section>
+    </div>
+
+    <div class="report-modal-backdrop is-hidden" id="dailyReportModal" role="dialog" aria-modal="true" aria-labelledby="dailyReportTitle">
+      <section class="report-modal">
+        <header class="report-modal-head">
+          <div>
+            <p class="eyebrow">Daily watch report</p>
+            <h2 id="dailyReportTitle">데일리 리포트</h2>
+            <p id="dailyReportMeta">오늘 기록할 디자인 구조 변경 요약</p>
+          </div>
+          <button class="icon-button" id="closeDailyReportButton" type="button" aria-label="닫기">
+            <span class="icon icon-close"></span>
+          </button>
+        </header>
+        <div class="report-modal-body" id="dailyReportBody"></div>
+      </section>
+    </div>
+
+    <script src="./app.js?v=dailyreport1"></script>
+  </body>
+</html>
