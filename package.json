@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "capture:daily": "node work/recapture_all_sites_1920.mjs && node work/make_top_thumbs.mjs",
+    "capture:daily": "node work/recapture_all_sites_1920.mjs && node work/make_top_thumbs.mjs && node work/analyze_daily_watch.mjs",
     "playwright:install": "playwright install --with-deps chromium"
   },
   "dependencies": {

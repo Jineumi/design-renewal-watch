@@ -1,6 +1,8 @@
 const scanDate = "2026-07-02";
-const latestCheckDate = "2026-07-07";
-const assetVersion = "dailyreport1";
+let latestCheckDate = "2026-07-07";
+const assetVersion = "autowatch1";
+const dailyReportPath = "./assets/daily-report.json";
+let automatedDailyReport = null;
 const versionAsset = (path) => (path ? `${path}?v=${assetVersion}` : path);
 
 const sites = [
@@ -660,6 +662,42 @@ function loadSavedRecords() {
   }
 }
 
+async function loadAutomatedDailyReport() {
+  try {
+    const response = await fetch(versionAsset(dailyReportPath), { cache: "no-store" });
+    if (!response.ok) return;
+    automatedDailyReport = await response.json();
+    if (automatedDailyReport?.date) latestCheckDate = automatedDailyReport.date;
+    applyAutomatedReportRecords();
+  } catch {
+    automatedDailyReport = null;
+  }
+}
+
+function applyAutomatedReportRecords() {
+  if (!automatedDailyReport?.records?.length) return;
+
+  automatedDailyReport.records.forEach(record => {
+    const site = sites.find(item => item.id === record.siteId);
+    if (!site) return;
+    const autoId = record.id || `${record.date}-${record.siteId}-${record.area}`;
+    const alreadyExists = site.history.some(item => item.autoId === autoId);
+    if (alreadyExists) return;
+
+    site.history.unshift({
+      autoId,
+      date: record.date,
+      type: record.type || "검토 필요",
+      changeType: record.changeType || "자동 구조 감지",
+      area: record.area || "UI Structure Signal",
+      asis: record.asis || "이전 기준 캡쳐",
+      tobe: record.tobe || "오늘 캡쳐",
+      comment: record.comment || "자동 감지 리포트입니다."
+    });
+    site.lastScan = record.date;
+  });
+}
+
 function saveRecord(siteId, record) {
   const recordsBySite = JSON.parse(localStorage.getItem(storageKey) || "{}");
   recordsBySite[siteId] = [record, ...(recordsBySite[siteId] || [])];
@@ -744,7 +782,15 @@ function getAlertRecords() {
 }
 
 function getDailyReportRecords() {
-  return getAlertRecords().filter(record => record.date === latestCheckDate);
+  const records = getAlertRecords().filter(record => record.date === latestCheckDate);
+  if (records.length || !automatedDailyReport?.records?.length) return records;
+
+  return automatedDailyReport.records.map(record => ({
+    ...record,
+    siteName: record.siteName || sites.find(site => site.id === record.siteId)?.name || record.siteId,
+    company: sites.find(site => site.id === record.siteId)?.company || "",
+    category: sites.find(site => site.id === record.siteId)?.category || ""
+  }));
 }
 
 function getReportAction() {
@@ -1400,4 +1446,4 @@ window.addEventListener("keydown", event => {
 
 loadSavedRecords();
 renderSurveyOptions();
-renderRoute();
+loadAutomatedDailyReport().finally(renderRoute);

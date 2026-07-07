@@ -3,6 +3,7 @@ import fs from "node:fs/promises";
 import { chromium } from "playwright";
 
 const outDir = path.resolve(process.cwd(), "outputs/design-watch/assets");
+const logPath = path.join(outDir, "recapture-all-1920-log.json");
 const targets = [
   {
     id: "vivasam",
@@ -65,6 +66,44 @@ const targets = [
     legacyFile: "jihak-high-full.png",
   },
 ];
+
+async function readPreviousResults() {
+  try {
+    const previous = JSON.parse(await fs.readFile(logPath, "utf8"));
+    return new Map(previous.map((result) => [result.id, result]));
+  } catch {
+    return new Map();
+  }
+}
+
+function compareStructure(previous, next) {
+  const previousState = previous?.state;
+  if (!previousState || !next) {
+    return {
+      changed: false,
+      reasons: [],
+    };
+  }
+
+  const checks = [
+    ["scrollHeight", "페이지 세로 길이"],
+    ["navSignature", "상단 탐색 구조"],
+    ["headingSignature", "주요 제목 구조"],
+    ["buttonCount", "버튼 수"],
+    ["linkCount", "링크 수"],
+    ["fixedElementCount", "고정/플로팅 요소 수"],
+    ["visibleDialogs", "잔여 팝업/레이어 수"],
+  ];
+
+  const reasons = checks
+    .filter(([key]) => String(previousState[key]) !== String(next[key]))
+    .map(([key, label]) => `${label}: ${previousState[key] ?? "-"} → ${next[key] ?? "-"}`);
+
+  return {
+    changed: reasons.length >= 2,
+    reasons,
+  };
+}
 
 async function closeExplicitPopups(page) {
   const closed = [];
@@ -140,7 +179,7 @@ async function closeExplicitPopups(page) {
   return closed;
 }
 
-async function captureTarget(browser, target) {
+async function captureTarget(browser, target, previousResult) {
   const page = await browser.newPage({
     viewport: { width: 1920, height: 1080 },
     deviceScaleFactor: 1,
@@ -179,7 +218,33 @@ async function captureTarget(browser, target) {
             Number(style.opacity || 1) !== 0
           );
         }).length,
+      navSignature: Array.from(document.querySelectorAll("nav, header, [class*='gnb' i], [id*='gnb' i], [class*='menu' i]"))
+        .slice(0, 8)
+        .map((el) => el.innerText?.replace(/\s+/g, " ").trim().slice(0, 120))
+        .filter(Boolean)
+        .join(" | "),
+      headingSignature: Array.from(document.querySelectorAll("h1,h2,h3"))
+        .slice(0, 12)
+        .map((el) => el.innerText?.replace(/\s+/g, " ").trim())
+        .filter(Boolean)
+        .join(" | "),
+      buttonCount: document.querySelectorAll("button, input[type='button'], input[type='submit'], [role='button']").length,
+      linkCount: document.querySelectorAll("a[href]").length,
+      fixedElementCount: Array.from(document.querySelectorAll("body *"))
+        .slice(0, 5000)
+        .filter((el) => {
+          const style = getComputedStyle(el);
+          const rect = el.getBoundingClientRect();
+          return (
+            ["fixed", "sticky"].includes(style.position) &&
+            rect.width > 20 &&
+            rect.height > 20 &&
+            style.display !== "none" &&
+            style.visibility !== "hidden"
+          );
+        }).length,
     }));
+    const structure = compareStructure(previousResult, state);
 
     const tmpPath = `${outDir}/${target.cleanFile}.tmp.png`;
     await page.screenshot({
@@ -189,7 +254,7 @@ async function captureTarget(browser, target) {
     });
     await fs.rename(tmpPath, `${outDir}/${target.cleanFile}`);
     await fs.copyFile(`${outDir}/${target.cleanFile}`, `${outDir}/${target.legacyFile}`);
-    return { id: target.id, ok: true, cleanFile: target.cleanFile, legacyFile: target.legacyFile, closed, state };
+    return { id: target.id, ok: true, cleanFile: target.cleanFile, legacyFile: target.legacyFile, closed, state, structure };
   } catch (error) {
     return { id: target.id, ok: false, cleanFile: target.cleanFile, error: String(error?.message || error) };
   } finally {
@@ -197,19 +262,20 @@ async function captureTarget(browser, target) {
   }
 }
 
+const previousResults = await readPreviousResults();
 const browser = await chromium.launch({ headless: true });
 
 const results = [];
 try {
   for (const target of targets) {
-    results.push(await captureTarget(browser, target));
+    results.push(await captureTarget(browser, target, previousResults.get(target.id)));
     console.log(JSON.stringify(results.at(-1)));
   }
 } finally {
   await browser.close();
 }
 
-await fs.writeFile(`${outDir}/recapture-all-1920-log.json`, `${JSON.stringify(results, null, 2)}\n`);
+await fs.writeFile(logPath, `${JSON.stringify(results, null, 2)}\n`);
 
 const failed = results.filter((result) => !result.ok);
 if (failed.length) {
