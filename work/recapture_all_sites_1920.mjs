@@ -13,9 +13,21 @@ const targets = [
   },
   {
     id: "tsherpa",
+    siteId: "tsherpa",
+    pageId: "main",
+    pageName: "메인",
     url: "https://ele.tsherpa.co.kr/",
     cleanFile: "tsherpa-full-clean.png",
     legacyFile: "tsherpa-full.png",
+  },
+  {
+    id: "tsherpa-curri",
+    siteId: "tsherpa",
+    pageId: "curri",
+    pageName: "교과학습",
+    url: "https://ele.tsherpa.co.kr/curri/E-curri_list.html?semester=1&grade=3&curri=",
+    cleanFile: "tsherpa-curri-full-clean.png",
+    legacyFile: "tsherpa-curri-full.png",
   },
   {
     id: "mteacher",
@@ -254,9 +266,28 @@ async function captureTarget(browser, target, previousResult) {
     });
     await fs.rename(tmpPath, `${outDir}/${target.cleanFile}`);
     await fs.copyFile(`${outDir}/${target.cleanFile}`, `${outDir}/${target.legacyFile}`);
-    return { id: target.id, ok: true, cleanFile: target.cleanFile, legacyFile: target.legacyFile, closed, state, structure };
+    return {
+      id: target.id,
+      siteId: target.siteId || target.id,
+      pageId: target.pageId || "main",
+      pageName: target.pageName || "메인",
+      ok: true,
+      cleanFile: target.cleanFile,
+      legacyFile: target.legacyFile,
+      closed,
+      state,
+      structure,
+    };
   } catch (error) {
-    return { id: target.id, ok: false, cleanFile: target.cleanFile, error: String(error?.message || error) };
+    return {
+      id: target.id,
+      siteId: target.siteId || target.id,
+      pageId: target.pageId || "main",
+      pageName: target.pageName || "메인",
+      ok: false,
+      cleanFile: target.cleanFile,
+      error: String(error?.message || error),
+    };
   } finally {
     await page.close().catch(() => {});
   }

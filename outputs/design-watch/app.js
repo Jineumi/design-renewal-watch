@@ -1,6 +1,6 @@
 const scanDate = "2026-07-02";
-let latestCheckDate = "2026-07-07";
-const assetVersion = "autowatch1";
+let latestCheckDate = "2026-07-08";
+const assetVersion = "profile-align1";
 const dailyReportPath = "./assets/daily-report.json";
 let automatedDailyReport = null;
 const versionAsset = (path) => (path ? `${path}?v=${assetVersion}` : path);
@@ -58,6 +58,23 @@ const sites = [
     url: "https://ele.tsherpa.co.kr/",
     image: "./assets/tsherpa-thumb.png",
     fullImage: "./assets/tsherpa-full-clean.png",
+    trackedPages: [
+      {
+        id: "curri",
+        name: "교과학습",
+        type: "Curriculum List",
+        url: "https://ele.tsherpa.co.kr/curri/E-curri_list.html?semester=1&grade=3&curri=",
+        image: "./assets/tsherpa-curri-thumb.png",
+        fullImage: "./assets/tsherpa-curri-full-clean.png",
+        captureLabel: "T셀파 초등 교과학습",
+        scope: ["교과 자료 리스트", "학년/학기 필터", "자료 카드 탐색"],
+        status: "Baseline",
+        priority: "높음",
+        lastScan: latestCheckDate,
+        reason: "교사가 학년/학기 기준으로 교과 자료를 찾는 핵심 화면으로, 필터와 자료 리스트 구조 변화의 추적 가치가 높음",
+        note: "초등 3학년 1학기 교과학습 리스트를 대표 서브페이지로 추적"
+      }
+    ],
     schoolLevel: "elementary",
     category: "교수학습",
     priority: "High",
@@ -544,6 +561,7 @@ const siteDisplayOrder = {
 };
 
 const storageKey = "designRenewalWatchRecords";
+const trackedPagesStorageKey = "designRenewalWatchTrackedPages";
 
 let selectedSiteId = "tsherpa";
 let activeDetailTab = "overview";
@@ -576,6 +594,7 @@ const closeSurveyButton = document.querySelector("#closeSurveyButton");
 const cancelSurveyButton = document.querySelector("#cancelSurveyButton");
 const captureModal = document.querySelector("#captureModal");
 const captureModalImage = document.querySelector("#captureModalImage");
+const captureModalEmpty = document.querySelector("#captureModalEmpty");
 const captureModalTitle = document.querySelector("#captureModalTitle");
 const captureModalMeta = document.querySelector("#captureModalMeta");
 const closeCaptureModalButton = document.querySelector("#closeCaptureModalButton");
@@ -583,6 +602,17 @@ const dailyReportModal = document.querySelector("#dailyReportModal");
 const dailyReportBody = document.querySelector("#dailyReportBody");
 const dailyReportMeta = document.querySelector("#dailyReportMeta");
 const closeDailyReportButton = document.querySelector("#closeDailyReportButton");
+const trackedPageModal = document.querySelector("#trackedPageModal");
+const trackedPageForm = document.querySelector("#trackedPageForm");
+const trackedPageSite = document.querySelector("#trackedPageSite");
+const trackedPageType = document.querySelector("#trackedPageType");
+const trackedPageName = document.querySelector("#trackedPageName");
+const trackedPageUrl = document.querySelector("#trackedPageUrl");
+const trackedPageReason = document.querySelector("#trackedPageReason");
+const trackedPageScope = document.querySelector("#trackedPageScope");
+const trackedPagePriority = document.querySelector("#trackedPagePriority");
+const closeTrackedPageButton = document.querySelector("#closeTrackedPageButton");
+const cancelTrackedPageButton = document.querySelector("#cancelTrackedPageButton");
 
 function escapeHtml(value) {
   return String(value)
@@ -629,6 +659,10 @@ function hasBaseline(site) {
   return site.history.some(record => record.type === "Baseline");
 }
 
+function getTrackedPageCount(site) {
+  return Array.isArray(site.trackedPages) ? site.trackedPages.length : 0;
+}
+
 function getSiteStatusBadges(site) {
   const status = getSiteStatus(site);
   const badges = [];
@@ -660,6 +694,29 @@ function loadSavedRecords() {
   } catch {
     localStorage.removeItem(storageKey);
   }
+}
+
+function loadSavedTrackedPages() {
+  try {
+    const pagesBySite = JSON.parse(localStorage.getItem(trackedPagesStorageKey) || "{}");
+    sites.forEach(site => {
+      const pages = Array.isArray(pagesBySite[site.id]) ? pagesBySite[site.id] : [];
+      if (!pages.length) return;
+      const existingIds = new Set((site.trackedPages || []).map(page => page.id));
+      site.trackedPages = [
+        ...(site.trackedPages || []),
+        ...pages.filter(page => !existingIds.has(page.id))
+      ];
+    });
+  } catch {
+    localStorage.removeItem(trackedPagesStorageKey);
+  }
+}
+
+function saveTrackedPage(siteId, page) {
+  const pagesBySite = JSON.parse(localStorage.getItem(trackedPagesStorageKey) || "{}");
+  pagesBySite[siteId] = [page, ...(pagesBySite[siteId] || [])];
+  localStorage.setItem(trackedPagesStorageKey, JSON.stringify(pagesBySite));
 }
 
 async function loadAutomatedDailyReport() {
@@ -907,6 +964,7 @@ function renderCards() {
             </div>
             <div class="card-meta">
               <span>관찰 영역: ${escapeHtml(site.category)}</span>
+              <span>추적 페이지: ${getTrackedPageCount(site)}개</span>
               <span>최근 조사일: ${escapeHtml(site.lastScan)}</span>
             </div>
           </div>
@@ -944,45 +1002,51 @@ function renderDetail() {
 
       <section class="detail-summary-grid">
         <div class="overview-card site-profile">
+          <div class="collecting-badge" aria-label="모니터링 수집 중">
+            <span class="live-dot"></span>
+            <span>수집 중</span>
+          </div>
           <div class="site-profile-main">
             <h2>
               <a class="detail-title-link" href="${site.url}" target="_blank" rel="noreferrer">
                 ${escapeHtml(site.name)}
               </a>
+              <a class="detail-title-url" href="${site.url}" target="_blank" rel="noreferrer">(${escapeHtml(siteHost)})</a>
             </h2>
-            <a class="site-url detail-url" href="${site.url}" target="_blank" rel="noreferrer">${escapeHtml(siteHost)}</a>
-            <dl class="meta-table">
-              <div><dt>운영사</dt><dd>${escapeHtml(site.company)}</dd></div>
-              <div><dt>분류</dt><dd>${escapeHtml(site.category)}</dd></div>
-              <div><dt>모니터링 상태</dt><dd><span class="live-dot"></span>수집 중</dd></div>
-              <div><dt>최근 조사일</dt><dd>${escapeHtml(site.lastScan)}</dd></div>
-              <div><dt>누적 히스토리</dt><dd>${site.history.length}건</dd></div>
-              <div><dt>기준 분석 영역</dt><dd>${escapeHtml(history.area)}</dd></div>
-            </dl>
+            <div class="profile-baseline-row">
+              <span class="status-badge blue">${escapeHtml(history.type)} 기준 화면</span>
+              <strong>${escapeHtml(site.lastScan)} 기준 최초 등록 화면</strong>
+            </div>
+            <div class="profile-focus-row">
+              <span>기준 분석 영역</span>
+              <strong>${escapeHtml(history.area)}</strong>
+            </div>
+            <p class="profile-meta-line">
+              운영사 ${escapeHtml(site.company)} · 분류 ${escapeHtml(site.category)} · 누적 히스토리 ${site.history.length}건 · 선택 추적 페이지 ${getTrackedPageCount(site)}개
+            </p>
             <div class="profile-status-strip">
               <span>기준 화면 요약</span>
-              <strong>${escapeHtml(history.type)}</strong>
               <p>${escapeHtml(site.renewalSignal)}</p>
             </div>
           </div>
         </div>
 
         <div class="overview-card status-overview">
-          <p class="section-title compact">기록 상태 요약</p>
+          <p class="section-title compact">히스토리 상태</p>
           <div class="status-count-list">
-            ${["Baseline", "변경 감지", "검토 필요", "업데이트 완료", "제외 처리"]
+            ${["Baseline", "변경 감지", "검토 필요", "업데이트 완료"]
               .map(status => renderStatusCountItem(status, statusCounts[status] || 0))
               .join("")}
           </div>
           <div class="status-note slim">
-            <strong>${escapeHtml(history.type)}</strong>
-            <span>${escapeHtml(statusDescription)}</span>
+            <span><strong>${escapeHtml(history.type)}</strong>은 이후 변경 비교의 기준점입니다.</span>
           </div>
         </div>
       </section>
 
       <nav class="detail-tabs" aria-label="상세 탭">
         ${renderDetailTabButton("overview", "개요")}
+        ${renderDetailTabButton("pages", "추적 페이지")}
         ${renderDetailTabButton("history", "업데이트 히스토리")}
         ${renderDetailTabButton("compare", "비교 보기")}
         ${renderDetailTabButton("insight", "인사이트")}
@@ -1020,6 +1084,7 @@ function renderDetailTabButton(id, label) {
 }
 
 function renderActiveDetailTab(site, history, insight) {
+  if (activeDetailTab === "pages") return renderTrackedPagesTab(site);
   if (activeDetailTab === "history") return renderHistoryTab(site);
   if (activeDetailTab === "compare") return renderCompareTab(site);
   if (activeDetailTab === "insight") return renderInsightTab(insight);
@@ -1081,6 +1146,173 @@ function renderOverviewTab(site, insight) {
       </section>
     </div>
   `;
+}
+
+function renderTrackedPagesPreview(site) {
+  const pages = site.trackedPages || [];
+  if (!pages.length) return "";
+
+  return `
+    <section class="overview-card tracked-pages-preview">
+      <p class="section-title compact">추적 페이지</p>
+      <div class="tracked-page-mini-list">
+        ${pages
+          .slice(0, 3)
+          .map(
+            page => `
+              <a class="tracked-page-mini" href="${escapeHtml(page.url)}" target="_blank" rel="noreferrer">
+                <span>${escapeHtml(page.name)}</span>
+                <strong>${escapeHtml(page.status)}</strong>
+              </a>
+            `
+          )
+          .join("")}
+      </div>
+      <button class="text-button" type="button" data-detail-tab="pages">선택 추적 페이지 보기</button>
+    </section>
+  `;
+}
+
+function renderTrackedPageCapture(site, page) {
+  const image = page.image || "";
+  const captureLabel = page.captureLabel || `${site.name} ${page.name}`;
+  const isPending = image ? "" : " is-pending";
+  const imageMarkup = image
+    ? `<img src="${versionAsset(image)}" alt="${escapeHtml(captureLabel)} 썸네일" onerror="this.closest('.tracked-page-capture').classList.add('is-pending'); this.remove();" />`
+    : "";
+
+  return `
+    <button
+      class="tracked-page-capture${isPending}"
+      type="button"
+      data-capture-page-site-id="${escapeHtml(site.id)}"
+      data-capture-page-id="${escapeHtml(page.id)}"
+      aria-label="${escapeHtml(captureLabel)} 전체 캡처 보기"
+    >
+      ${imageMarkup}
+      <span class="tracked-page-capture-empty">다음 자동 조사 후 캡처 표시</span>
+      <span class="capture-zoom-label">전체 캡처 보기 →</span>
+    </button>
+  `;
+}
+
+function renderTrackedPagesTab(site) {
+  const pages = site.trackedPages || [];
+  const trackedCount = pages.length;
+
+  if (!pages.length) {
+    return `
+      <section class="overview-card compare-empty-state">
+        <strong>등록된 선택 추적 페이지가 없습니다.</strong>
+        <p>메인 화면 외에 별도로 관찰할 대표 서브페이지를 추가하면 이곳에 표시됩니다.</p>
+        <button class="primary-action compact-action" type="button" data-open-tracked-page-modal>+ 추적 페이지 추가</button>
+      </section>
+    `;
+  }
+
+  return `
+    <div class="tracked-pages-layout">
+      <section class="tracked-pages-hero">
+        <div>
+          <p class="section-title compact">선택 추적 페이지</p>
+          <h3>전체 서브페이지가 아닌, UX 비교 가치가 있는 주요 화면만 관리합니다.</h3>
+          <p>배너/썸네일 교체는 제외하고 필터, 탐색, 자료 카드, 다운로드 CTA, 빈 상태 같은 구조 변화를 우선 기록합니다.</p>
+        </div>
+        <div class="tracked-page-summary">
+          <span>등록 페이지</span>
+          <strong>${trackedCount}개</strong>
+        </div>
+        <button class="primary-action compact-action" type="button" data-open-tracked-page-modal>+ 추적 페이지 추가</button>
+      </section>
+      ${pages
+        .map(
+          page => `
+            <article class="overview-card tracked-page-card">
+              ${renderTrackedPageCapture(site, page)}
+              <div class="tracked-page-head">
+                <div>
+                  <span>${escapeHtml(page.type || "Tracked page")}</span>
+                  <h3>${escapeHtml(page.name)}</h3>
+                </div>
+                <span class="status-badge blue">${escapeHtml(page.status)}</span>
+              </div>
+              <a class="tracked-page-url" href="${escapeHtml(page.url)}" target="_blank" rel="noreferrer">${escapeHtml(page.url.replace(/^https?:\/\//, ""))}</a>
+              <div class="tracked-page-report">
+                <div>
+                  <span>추적 가치</span>
+                  <p>${escapeHtml(page.reason || page.note || "이 화면은 자료 탐색 흐름과 구조 변화를 확인하기 위한 대표 서브페이지입니다.")}</p>
+                </div>
+                <div>
+                  <span>자동 리포트 기준</span>
+                  <p>상단 탐색, 필터/정렬, 자료 리스트, CTA, 고정 도구의 구조 시그널이 달라지면 검토 필요로 기록합니다.</p>
+                </div>
+              </div>
+              <dl class="tracked-page-meta">
+                <div><dt>우선순위</dt><dd>${escapeHtml(page.priority || "중간")}</dd></div>
+                <div><dt>최근 조사일</dt><dd>${escapeHtml(page.lastScan)}</dd></div>
+                <div><dt>관찰 범위</dt><dd>${escapeHtml(page.scope.join(" / "))}</dd></div>
+                <div><dt>다음 액션</dt><dd>자동 캡처 후 구조 변화가 감지되면 업데이트 히스토리에 연결</dd></div>
+              </dl>
+              <div class="tracked-page-actions">
+                <a class="text-button inline" href="${escapeHtml(page.url)}" target="_blank" rel="noreferrer">페이지 열기</a>
+                <button class="text-button inline" type="button" data-detail-tab="history">관련 히스토리 보기</button>
+              </div>
+            </article>
+          `
+        )
+        .join("")}
+    </div>
+  `;
+}
+
+function openTrackedPageModal() {
+  const site = sites.find(item => item.id === selectedSiteId) || sites[0];
+  trackedPageForm.reset();
+  trackedPageSite.value = site.name;
+  trackedPageType.value = "Resource Finder";
+  trackedPageName.value = "";
+  trackedPageUrl.value = "";
+  trackedPageReason.value = "";
+  trackedPageScope.value = "";
+  trackedPagePriority.value = "높음";
+  trackedPageModal.classList.remove("is-hidden");
+  trackedPageName.focus();
+}
+
+function closeTrackedPageModal() {
+  trackedPageModal.classList.add("is-hidden");
+}
+
+function handleTrackedPageSubmit(event) {
+  event.preventDefault();
+  const site = sites.find(item => item.id === selectedSiteId);
+  if (!site) return;
+
+  const pageName = trackedPageName.value.trim();
+  const page = {
+    id: `custom-${Date.now()}`,
+    name: pageName,
+    type: trackedPageType.value.trim() || "Tracked page",
+    url: trackedPageUrl.value.trim(),
+    scope: trackedPageScope.value
+      .split(",")
+      .map(item => item.trim())
+      .filter(Boolean),
+    image: "",
+    fullImage: "",
+    captureLabel: pageName,
+    status: "Baseline",
+    priority: trackedPagePriority.value,
+    lastScan: latestCheckDate,
+    reason: trackedPageReason.value.trim(),
+    note: trackedPageReason.value.trim()
+  };
+
+  site.trackedPages = [page, ...(site.trackedPages || [])];
+  saveTrackedPage(site.id, page);
+  closeTrackedPageModal();
+  activeDetailTab = "pages";
+  renderDetail();
 }
 
 function renderHistoryTab(site) {
@@ -1236,17 +1468,27 @@ function closeSurveyModal() {
   newSurveyButton.focus();
 }
 
-function openCaptureModal(site) {
-  captureModalImage.src = versionAsset(site.fullImage || site.image);
-  captureModalImage.alt = `${site.name} 기준 화면 전체 캡처`;
-  captureModalTitle.textContent = `${site.name} 기준 화면`;
-  captureModalMeta.textContent = `관찰 범위: ${site.scope.join(" / ")}`;
+function openCaptureModal(target) {
+  const image = target.fullImage || target.image || "";
+  captureModalImage.classList.toggle("is-hidden", !image);
+  captureModalEmpty.classList.toggle("is-hidden", Boolean(image));
+  captureModalImage.onerror = () => {
+    captureModalImage.classList.add("is-hidden");
+    captureModalEmpty.classList.remove("is-hidden");
+  };
+  captureModalImage.src = image ? versionAsset(image) : "";
+  captureModalImage.alt = `${target.name} 기준 화면 전체 캡처`;
+  captureModalTitle.textContent = `${target.name} 기준 화면`;
+  captureModalMeta.textContent = `관찰 범위: ${(target.scope || []).join(" / ")}`;
   captureModal.classList.remove("is-hidden");
   closeCaptureModalButton.focus();
 }
 
 function closeCaptureModal() {
   captureModal.classList.add("is-hidden");
+  captureModalImage.onerror = null;
+  captureModalImage.classList.remove("is-hidden");
+  captureModalEmpty.classList.add("is-hidden");
   captureModalImage.removeAttribute("src");
 }
 
@@ -1388,6 +1630,27 @@ schoolTabs.forEach(tab => {
 });
 window.addEventListener("hashchange", renderRoute);
 detailView.addEventListener("click", event => {
+  const trackedPageButton = event.target.closest("[data-open-tracked-page-modal]");
+  if (trackedPageButton) {
+    openTrackedPageModal();
+    return;
+  }
+
+  const trackedPageCaptureButton = event.target.closest("[data-capture-page-id]");
+  if (trackedPageCaptureButton) {
+    const site = sites.find(item => item.id === trackedPageCaptureButton.dataset.capturePageSiteId);
+    const page = site?.trackedPages?.find(item => item.id === trackedPageCaptureButton.dataset.capturePageId);
+    if (site && page) {
+      openCaptureModal({
+        name: page.captureLabel || `${site.name} ${page.name}`,
+        image: page.image,
+        fullImage: page.fullImage,
+        scope: page.scope || []
+      });
+    }
+    return;
+  }
+
   const captureButton = event.target.closest("[data-capture-site-id]");
   if (captureButton) {
     const site = sites.find(item => item.id === captureButton.dataset.captureSiteId);
@@ -1419,6 +1682,12 @@ captureModal.addEventListener("click", event => {
   if (event.target === captureModal) closeCaptureModal();
 });
 closeDailyReportButton.addEventListener("click", closeDailyReportModal);
+closeTrackedPageButton.addEventListener("click", closeTrackedPageModal);
+cancelTrackedPageButton.addEventListener("click", closeTrackedPageModal);
+trackedPageForm.addEventListener("submit", handleTrackedPageSubmit);
+trackedPageModal.addEventListener("click", event => {
+  if (event.target === trackedPageModal) closeTrackedPageModal();
+});
 dailyReportModal.addEventListener("click", event => {
   if (event.target === dailyReportModal) {
     closeDailyReportModal();
@@ -1442,8 +1711,12 @@ window.addEventListener("keydown", event => {
   if (event.key === "Escape" && !dailyReportModal.classList.contains("is-hidden")) {
     closeDailyReportModal();
   }
+  if (event.key === "Escape" && !trackedPageModal.classList.contains("is-hidden")) {
+    closeTrackedPageModal();
+  }
 });
 
 loadSavedRecords();
+loadSavedTrackedPages();
 renderSurveyOptions();
 loadAutomatedDailyReport().finally(renderRoute);

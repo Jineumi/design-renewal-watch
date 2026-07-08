@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Edu UI Watch</title>
-    <link rel="stylesheet" href="./styles.css?v=autowatch1" />
+    <link rel="stylesheet" href="./styles.css?v=profile-align1" />
   </head>
   <body>
     <main class="shell">
@@ -134,8 +134,78 @@
         </header>
         <div class="capture-modal-body">
           <img id="captureModalImage" alt="" />
+          <div class="capture-modal-empty is-hidden" id="captureModalEmpty">
+            <strong>아직 표시할 전체 캡처가 없습니다.</strong>
+            <p>다음 자동 조사 또는 수동 캡처가 완료되면 이 영역에서 풀페이지 기준 화면을 확인할 수 있습니다.</p>
+          </div>
         </div>
       </section>
+    </div>
+
+    <div class="modal-backdrop is-hidden" id="trackedPageModal" role="dialog" aria-modal="true" aria-labelledby="trackedPageTitle">
+      <form class="survey-modal tracked-page-modal" id="trackedPageForm">
+        <div class="modal-head">
+          <div>
+            <p class="eyebrow">Selected page watch</p>
+            <h2 id="trackedPageTitle">추적 페이지 추가</h2>
+            <p>이 사이트에서 정기적으로 확인할 주요 화면을 직접 등록합니다.</p>
+          </div>
+          <button class="icon-button" id="closeTrackedPageButton" type="button" aria-label="닫기">
+            <span class="icon icon-close"></span>
+          </button>
+        </div>
+
+        <div class="form-grid two">
+          <label>
+            <span>사이트</span>
+            <input id="trackedPageSite" type="text" readonly />
+          </label>
+          <label>
+            <span>화면 유형</span>
+            <input id="trackedPageType" type="text" placeholder="예: Resource Finder" required />
+          </label>
+        </div>
+
+        <label class="field-full">
+          <span>페이지명</span>
+          <input id="trackedPageName" type="text" placeholder="예: 수업자료 목록" required />
+        </label>
+
+        <label class="field-full">
+          <span>URL</span>
+          <input id="trackedPageUrl" type="url" placeholder="https://..." required />
+        </label>
+
+        <label class="field-full">
+          <span>선택 사유</span>
+          <textarea id="trackedPageReason" rows="4" placeholder="이 화면을 추적해야 하는 이유를 적어주세요." required></textarea>
+        </label>
+
+        <label class="field-full">
+          <span>관찰 범위</span>
+          <input id="trackedPageScope" type="text" placeholder="예: 검색, 필터, 자료 리스트, 다운로드 CTA" required />
+        </label>
+
+        <div class="form-grid two">
+          <label>
+            <span>우선순위</span>
+            <select id="trackedPagePriority">
+              <option>높음</option>
+              <option>중간</option>
+              <option>낮음</option>
+            </select>
+          </label>
+          <label>
+            <span>Baseline 캡처</span>
+            <input type="text" value="다음 자동 조사 시 캡처 예정" readonly />
+          </label>
+        </div>
+
+        <div class="modal-actions">
+          <button class="secondary-action" id="cancelTrackedPageButton" type="button">취소</button>
+          <button class="primary-action" type="submit">등록</button>
+        </div>
+      </form>
     </div>
 
     <div class="report-modal-backdrop is-hidden" id="dailyReportModal" role="dialog" aria-modal="true" aria-labelledby="dailyReportTitle">
@@ -154,6 +224,6 @@
       </section>
     </div>
 
-    <script src="./app.js?v=autowatch1"></script>
+    <script src="./app.js?v=profile-align1"></script>
   </body>
 </html>

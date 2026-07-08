@@ -6,6 +6,7 @@ const root = path.resolve(process.cwd(), "outputs/design-watch/assets");
 const jobs = [
   ["vivasam-full-clean.png", "vivasam-thumb.png"],
   ["tsherpa-full-clean.png", "tsherpa-thumb.png"],
+  ["tsherpa-curri-full-clean.png", "tsherpa-curri-thumb.png"],
   ["mteacher-full-clean.png", "mteacher-thumb.png"],
   ["jihak-full-clean.png", "jihak-thumb.png"],
   ["vivasam-secondary-full-clean.png", "vivasam-secondary-thumb.png"],
@@ -19,17 +20,21 @@ const jobs = [
 for (const [sourceName, outputName] of jobs) {
   const source = path.join(root, sourceName);
   const output = path.join(root, outputName);
-  const image = sharp(source);
-  const metadata = await image.metadata();
-  const width = metadata.width ?? 1920;
-  const height = metadata.height ?? 1080;
-  const cropHeight = Math.min(height, Math.round(width / (16 / 9)));
+  try {
+    const image = sharp(source);
+    const metadata = await image.metadata();
+    const width = metadata.width ?? 1920;
+    const height = metadata.height ?? 1080;
+    const cropHeight = Math.min(height, Math.round(width / (16 / 9)));
 
-  await image
-    .extract({ left: 0, top: 0, width, height: cropHeight })
-    .resize(1920, 1080, { fit: "fill" })
-    .png()
-    .toFile(output);
+    await image
+      .extract({ left: 0, top: 0, width, height: cropHeight })
+      .resize(1920, 1080, { fit: "fill" })
+      .png()
+      .toFile(output);
 
-  console.log(`${outputName} <- ${sourceName}`);
+    console.log(`${outputName} <- ${sourceName}`);
+  } catch (error) {
+    console.warn(`skip ${sourceName}: ${error.message}`);
+  }
 }

@@ -30,12 +30,14 @@ const records = captureResults
   .filter((result) => result.ok && result.structure?.changed)
   .map((result) => ({
     id: `${today}-${result.id}`,
-    siteId: result.id,
-    siteName: siteNames[result.id] || result.id,
+    siteId: result.siteId || result.id,
+    pageId: result.pageId || "main",
+    pageName: result.pageName || "메인",
+    siteName: siteNames[result.siteId || result.id] || result.siteId || result.id,
     date: today,
     type: "검토 필요",
     changeType: "자동 구조 감지",
-    area: "UI Structure Signal",
+    area: result.pageName && result.pageName !== "메인" ? `${result.pageName} / UI Structure Signal` : "UI Structure Signal",
     asis: "이전 기준 캡쳐의 구조 시그니처",
     tobe: "오늘 캡쳐의 구조 시그니처",
     comment: `자동 감지된 구조 신호: ${result.structure.reasons.slice(0, 4).join(" / ")}`,
@@ -45,8 +47,10 @@ const records = captureResults
 const failed = captureResults
   .filter((result) => !result.ok)
   .map((result) => ({
-    siteId: result.id,
-    siteName: siteNames[result.id] || result.id,
+    siteId: result.siteId || result.id,
+    pageId: result.pageId || "main",
+    pageName: result.pageName || "메인",
+    siteName: siteNames[result.siteId || result.id] || result.siteId || result.id,
     error: result.error,
   }));
 
