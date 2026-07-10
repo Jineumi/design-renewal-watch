@@ -4,6 +4,13 @@ import { chromium } from "playwright";
 
 const outDir = path.resolve(process.cwd(), "outputs/design-watch/assets");
 const logPath = path.join(outDir, "recapture-all-1920-log.json");
+const today = new Intl.DateTimeFormat("en-CA", {
+  timeZone: "Asia/Seoul",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+}).format(new Date());
+
 const targets = [
   {
     id: "vivasam",
@@ -85,6 +92,15 @@ async function readPreviousResults() {
     return new Map(previous.map((result) => [result.id, result]));
   } catch {
     return new Map();
+  }
+}
+
+async function fileExists(filePath) {
+  try {
+    await fs.access(filePath);
+    return true;
+  } catch {
+    return false;
   }
 }
 
@@ -257,15 +273,34 @@ async function captureTarget(browser, target, previousResult) {
         }).length,
     }));
     const structure = compareStructure(previousResult, state);
+    const datedCapture = `evidence/${today}/${target.id}-full.png`;
+    const evidence = structure.changed
+      ? {
+          currentFull: datedCapture,
+          previousFull: previousResult?.evidence?.currentFull || "",
+        }
+      : null;
 
-    const tmpPath = `${outDir}/${target.cleanFile}.tmp.png`;
+    await fs.mkdir(path.join(outDir, "evidence", today), { recursive: true });
+    const tmpPath = path.join(outDir, "evidence", today, `${target.id}-full.tmp.png`);
+    const datedCapturePath = path.join(outDir, datedCapture);
     await page.screenshot({
       path: tmpPath,
       fullPage: true,
       animations: "disabled",
     });
-    await fs.rename(tmpPath, `${outDir}/${target.cleanFile}`);
-    await fs.copyFile(`${outDir}/${target.cleanFile}`, `${outDir}/${target.legacyFile}`);
+    await fs.rename(tmpPath, datedCapturePath);
+
+    const baselinePath = path.join(outDir, target.cleanFile);
+    const legacyPath = path.join(outDir, target.legacyFile);
+    const hasBaseline = await fileExists(baselinePath);
+    if (!hasBaseline) {
+      await fs.copyFile(datedCapturePath, baselinePath);
+    }
+    if (!(await fileExists(legacyPath))) {
+      await fs.copyFile(baselinePath, legacyPath);
+    }
+
     return {
       id: target.id,
       siteId: target.siteId || target.id,
@@ -274,9 +309,11 @@ async function captureTarget(browser, target, previousResult) {
       ok: true,
       cleanFile: target.cleanFile,
       legacyFile: target.legacyFile,
+      currentFile: datedCapture,
       closed,
       state,
       structure,
+      evidence,
     };
   } catch (error) {
     return {

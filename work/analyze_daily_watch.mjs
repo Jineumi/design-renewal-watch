@@ -41,6 +41,19 @@ const records = captureResults
     asis: "이전 기준 캡쳐의 구조 시그니처",
     tobe: "오늘 캡쳐의 구조 시그니처",
     comment: `자동 감지된 구조 신호: ${result.structure.reasons.slice(0, 4).join(" / ")}`,
+    evidence: result.evidence
+      ? {
+          label: "오늘 감지 화면",
+          currentFull: `./assets/${result.evidence.currentFull}`,
+          previousFull: result.evidence.previousFull ? `./assets/${result.evidence.previousFull}` : "",
+          note: "자동 구조 감지 시점의 전체 캡처입니다. 이후 영역 단위 crop으로 확장할 수 있습니다.",
+        }
+      : {
+          label: "오늘 감지 화면",
+          currentFull: `./assets/${result.currentFile || result.cleanFile}`,
+          previousFull: "",
+          note: "현재 전체 캡처입니다. 날짜별 evidence 파일은 다음 자동 조사부터 누적됩니다.",
+        },
     reasons: result.structure.reasons,
   }));
 

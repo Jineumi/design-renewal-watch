@@ -1,6 +1,6 @@
 const scanDate = "2026-07-02";
-let latestCheckDate = "2026-07-08";
-const assetVersion = "profile-align1";
+let latestCheckDate = "2026-07-09";
+const assetVersion = "reviewed-report1";
 const dailyReportPath = "./assets/daily-report.json";
 let automatedDailyReport = null;
 const versionAsset = (path) => (path ? `${path}?v=${assetVersion}` : path);
@@ -562,9 +562,12 @@ const siteDisplayOrder = {
 
 const storageKey = "designRenewalWatchRecords";
 const trackedPagesStorageKey = "designRenewalWatchTrackedPages";
+const statusDecisionStorageKey = "designRenewalWatchStatusDecisions";
 
 let selectedSiteId = "tsherpa";
 let activeDetailTab = "overview";
+let selectedHistoryIndex = 0;
+let statusDecisions = {};
 let listFilters = {
   school: "elementary",
   status: "all",
@@ -713,6 +716,47 @@ function loadSavedTrackedPages() {
   }
 }
 
+function loadStatusDecisions() {
+  try {
+    statusDecisions = JSON.parse(localStorage.getItem(statusDecisionStorageKey) || "{}");
+  } catch {
+    statusDecisions = {};
+    localStorage.removeItem(statusDecisionStorageKey);
+  }
+}
+
+function getHistoryRecordKey(siteId, record, index = 0) {
+  return record.autoId || [siteId, record.date, record.area, record.changeType || "record", index].join("__");
+}
+
+function applyStatusDecision(siteId, record, index = 0) {
+  const decision = statusDecisions[getHistoryRecordKey(siteId, record, index)];
+  if (!decision) return;
+  record.type = decision.type;
+  record.resolvedAt = decision.resolvedAt;
+  record.resolutionMemo = decision.memo;
+}
+
+function applyAllStatusDecisions() {
+  sites.forEach(site => {
+    site.history.forEach((record, index) => applyStatusDecision(site.id, record, index));
+  });
+}
+
+function saveStatusDecision(siteId, record, index, type) {
+  const key = getHistoryRecordKey(siteId, record, index);
+  statusDecisions[key] = {
+    type,
+    resolvedAt: getToday(),
+    memo:
+      type === "업데이트 완료"
+        ? "담당자가 구조 변경으로 확인하고 업데이트 완료 처리했습니다."
+        : "담당자가 배너·썸네일·콘텐츠성 변화로 판단해 제외 처리했습니다."
+  };
+  localStorage.setItem(statusDecisionStorageKey, JSON.stringify(statusDecisions));
+  applyStatusDecision(siteId, record, index);
+}
+
 function saveTrackedPage(siteId, page) {
   const pagesBySite = JSON.parse(localStorage.getItem(trackedPagesStorageKey) || "{}");
   pagesBySite[siteId] = [page, ...(pagesBySite[siteId] || [])];
@@ -738,10 +782,15 @@ function applyAutomatedReportRecords() {
     const site = sites.find(item => item.id === record.siteId);
     if (!site) return;
     const autoId = record.id || `${record.date}-${record.siteId}-${record.area}`;
-    const alreadyExists = site.history.some(item => item.autoId === autoId);
-    if (alreadyExists) return;
+    const existingRecord = site.history.find(item => item.autoId === autoId);
+    if (existingRecord) {
+      existingRecord.reasons = Array.isArray(record.reasons) ? record.reasons : existingRecord.reasons || [];
+      existingRecord.evidence = record.evidence || existingRecord.evidence || null;
+      applyStatusDecision(site.id, existingRecord, site.history.indexOf(existingRecord));
+      return;
+    }
 
-    site.history.unshift({
+    const nextRecord = {
       autoId,
       date: record.date,
       type: record.type || "검토 필요",
@@ -749,10 +798,15 @@ function applyAutomatedReportRecords() {
       area: record.area || "UI Structure Signal",
       asis: record.asis || "이전 기준 캡쳐",
       tobe: record.tobe || "오늘 캡쳐",
-      comment: record.comment || "자동 감지 리포트입니다."
-    });
+      comment: record.comment || "자동 감지 리포트입니다.",
+      reasons: Array.isArray(record.reasons) ? record.reasons : [],
+      evidence: record.evidence || null
+    };
+    applyStatusDecision(site.id, nextRecord, 0);
+    site.history.unshift(nextRecord);
     site.lastScan = record.date;
   });
+  applyAllStatusDecisions();
 }
 
 function saveRecord(siteId, record) {
@@ -839,15 +893,38 @@ function getAlertRecords() {
 }
 
 function getDailyReportRecords() {
-  const records = getAlertRecords().filter(record => record.date === latestCheckDate);
-  if (records.length || !automatedDailyReport?.records?.length) return records;
+  if (automatedDailyReport?.records?.length) {
+    return automatedDailyReport.records.map(record => {
+      const site = sites.find(item => item.id === record.siteId);
+      const autoId = record.id || `${record.date}-${record.siteId}-${record.area}`;
+      const currentRecord =
+        site?.history.find(item => item.autoId === autoId) ||
+        site?.history.find(item => item.date === record.date && item.area === record.area) ||
+        record;
 
-  return automatedDailyReport.records.map(record => ({
-    ...record,
-    siteName: record.siteName || sites.find(site => site.id === record.siteId)?.name || record.siteId,
-    company: sites.find(site => site.id === record.siteId)?.company || "",
-    category: sites.find(site => site.id === record.siteId)?.category || ""
-  }));
+      return {
+        ...record,
+        ...currentRecord,
+        siteId: record.siteId,
+        pageId: record.pageId || currentRecord.pageId || "main",
+        pageName: record.pageName || currentRecord.pageName || "메인",
+        siteName: record.siteName || site?.name || record.siteId,
+        company: site?.company || "",
+        category: site?.category || ""
+      };
+    });
+  }
+
+  return getAllHistoryRecords().filter(record => record.date === latestCheckDate && record.type !== "Baseline");
+}
+
+function isPendingRecord(record) {
+  return record.type === "변경 감지" || record.type === "검토 필요";
+}
+
+function getReportStatusLabel(record) {
+  if (record.type === "업데이트 완료" || record.type === "제외 처리") return "검토 완료";
+  return record.type;
 }
 
 function getReportAction() {
@@ -859,8 +936,14 @@ function renderUpdateAlerts() {
   const dailyReports = getDailyReportRecords();
   const allRecords = getAllHistoryRecords();
   const latestDate = latestCheckDate;
-  const pendingCount = alerts.filter(record => record.type === "변경 감지" || record.type === "검토 필요").length;
+  const pendingCount = alerts.filter(isPendingRecord).length;
+  const pendingDailyCount = dailyReports.filter(isPendingRecord).length;
   const baselineCount = allRecords.filter(record => record.type === "Baseline").length;
+  const activeTitle = pendingDailyCount
+    ? `확인할 디자인 구조 변화 ${pendingDailyCount}건`
+    : `검토 완료된 디자인 구조 변화 ${dailyReports.length}건`;
+  const panelStateClass = pendingDailyCount ? "active" : "reviewed";
+  const iconStateClass = pendingDailyCount ? "active" : "calm";
   const metricItems = [
     { label: "모니터링", value: `${sites.length}개`, filter: "all", enabled: true },
     { label: "기준 화면", value: `${baselineCount}건`, filter: "baseline", enabled: baselineCount > 0 },
@@ -895,10 +978,10 @@ function renderUpdateAlerts() {
   }
 
   updateAlerts.innerHTML = `
-    <article class="alert-panel active">
+    <article class="alert-panel ${panelStateClass}">
       <div class="alert-lead">
-        <span class="alert-icon active"></span>
-        <strong>확인할 디자인 구조 변화 ${dailyReports.length}건</strong>
+        <span class="alert-icon ${iconStateClass}"></span>
+        <strong>${escapeHtml(activeTitle)}</strong>
         <span>최근 점검 ${escapeHtml(latestDate)}</span>
       </div>
       <div class="alert-feed">
@@ -906,8 +989,8 @@ function renderUpdateAlerts() {
           .slice(0, 3)
           .map(
             record => `
-              <button class="alert-item" type="button" data-alert-site-id="${escapeHtml(record.siteId)}">
-                <span class="alert-status">${escapeHtml(record.type)}</span>
+              <button class="alert-item ${isPendingRecord(record) ? "" : "is-reviewed"}" type="button" data-alert-site-id="${escapeHtml(record.siteId)}">
+                <span class="alert-status">${escapeHtml(getReportStatusLabel(record))}</span>
                 <strong>${escapeHtml(record.siteName)}</strong>
                 <span>${escapeHtml(record.area)}</span>
                 <small>${escapeHtml(record.date)}</small>
@@ -1316,7 +1399,9 @@ function handleTrackedPageSubmit(event) {
 }
 
 function renderHistoryTab(site) {
-  const selected = site.history[0];
+  const safeIndex = Math.min(selectedHistoryIndex, Math.max(site.history.length - 1, 0));
+  selectedHistoryIndex = safeIndex;
+  const selected = site.history[safeIndex];
 
   return `
     <div class="history-workspace">
@@ -1324,21 +1409,21 @@ function renderHistoryTab(site) {
         ${site.history
           .map(
             (item, index) => `
-              <article class="timeline-item ${index === 0 ? "is-current" : ""}">
+              <button class="timeline-item ${index === safeIndex ? "is-current" : ""}" type="button" data-history-index="${index}">
                 <span class="timeline-dot"></span>
                 <p>${escapeHtml(item.date)}</p>
                 <h3>${escapeHtml(item.area)}</h3>
                 <span class="status-pill">${escapeHtml(item.type)}</span>
                 <small>${escapeHtml(item.changeType || "기준 화면")}</small>
-              </article>
+              </button>
             `
           )
           .join("")}
       </aside>
 
       <section class="overview-card history-focus">
-        <p class="section-title compact">최근 변경 상세</p>
-        ${renderHistoryEntry(selected)}
+        <p class="section-title compact">${safeIndex === 0 ? "최근 변경 상세" : "선택 히스토리 상세"}</p>
+        ${renderHistoryEntry(selected, site)}
       </section>
     </div>
   `;
@@ -1432,13 +1517,18 @@ function renderInsightTab(insight) {
   `;
 }
 
-function renderHistoryEntry(history) {
+function renderHistoryEntry(history, site) {
   const changeType = history.changeType || "기준 화면";
 
   return `
     <article class="history-entry">
-      <p class="history-date">${escapeHtml(history.date)}</p>
-      <h3>${escapeHtml(history.area)}</h3>
+      <div class="history-entry-head">
+        <div>
+          <p class="history-date">${escapeHtml(history.date)}</p>
+          <h3>${escapeHtml(history.area)}</h3>
+        </div>
+        ${renderReviewActions(history)}
+      </div>
       <div class="history-meta">
         <span>상태: ${escapeHtml(history.type)}</span>
         <span>변경 유형: ${escapeHtml(changeType)}</span>
@@ -1450,7 +1540,106 @@ function renderHistoryEntry(history) {
         <div class="compare-row"><span class="compare-label">To-be</span><span>${escapeHtml(history.tobe)}</span></div>
         <div class="compare-row"><span class="compare-label">Memo</span><span>${escapeHtml(history.comment || "메모 없음")}</span></div>
       </div>
+      ${renderChangeReasons(history)}
+      ${renderEvidencePanel(history, site)}
     </article>
+  `;
+}
+
+function renderReviewActions(history) {
+  if (history.type === "검토 필요" || history.type === "변경 감지") {
+    return `
+      <div class="review-actions" aria-label="검토 상태 처리">
+        <span>자동 감지된 변화입니다. 실제 UI 구조 변경인지 확인 후 처리해주세요.</span>
+        <button class="review-action-button primary" type="button" data-review-action="업데이트 완료">구조 변경으로 확정</button>
+        <button class="review-action-button muted" type="button" data-review-action="제외 처리">기록 제외</button>
+      </div>
+    `;
+  }
+
+  if (history.type === "업데이트 완료" || history.type === "제외 처리") {
+    return `
+      <div class="review-actions is-resolved">
+        <span>${escapeHtml(history.resolvedAt || history.date)} · ${escapeHtml(history.type)}</span>
+      </div>
+    `;
+  }
+
+  return "";
+}
+
+function renderChangeReasons(history) {
+  if (!Array.isArray(history.reasons) || !history.reasons.length) return "";
+
+  return `
+    <section class="change-signal-panel">
+      <p class="section-title compact">감지된 변화 신호</p>
+      <ul class="signal-list">
+        ${history.reasons
+          .slice(0, 4)
+          .map(reason => `<li>${escapeHtml(reason)}</li>`)
+          .join("")}
+      </ul>
+    </section>
+  `;
+}
+
+function renderEvidencePanel(history, site) {
+  const evidence = history.evidence || {};
+  const baselineImage = history.type === "Baseline" ? site?.fullImage || site?.image : "";
+  const images = [
+    evidence.previousFull
+      ? {
+          label: "이전 기준 화면",
+          src: evidence.previousFull,
+          description: "직전 조사에서 저장된 비교 기준 캡처"
+        }
+      : null,
+    evidence.currentFull
+      ? {
+          label: evidence.label || "오늘 감지 화면",
+          src: evidence.currentFull,
+          description: evidence.note || "자동 구조 감지 시점의 화면 캡처"
+        }
+      : baselineImage
+        ? {
+            label: "Baseline 기준 화면",
+            src: baselineImage,
+            description: "최초 기준 화면으로 등록된 전체 캡처"
+          }
+        : null
+  ].filter(Boolean);
+
+  if (!images.length) return "";
+
+  return `
+    <section class="evidence-panel">
+      <div class="evidence-head">
+        <p class="section-title compact">감지 근거 이미지</p>
+        <span>이미지를 누르면 전체 캡처로 확인할 수 있습니다.</span>
+      </div>
+      <div class="evidence-grid">
+        ${images
+          .map(
+            image => `
+              <button
+                class="evidence-card"
+                type="button"
+                data-history-capture-src="${escapeHtml(image.src)}"
+                data-history-capture-title="${escapeHtml(image.label)}"
+                data-history-capture-meta="${escapeHtml(history.area)}"
+              >
+                <span class="evidence-image">
+                  <img src="${versionAsset(image.src)}" alt="${escapeHtml(image.label)}" />
+                </span>
+                <strong>${escapeHtml(image.label)}</strong>
+                <small>${escapeHtml(image.description)}</small>
+              </button>
+            `
+          )
+          .join("")}
+      </div>
+    </section>
   `;
 }
 
@@ -1495,9 +1684,12 @@ function closeCaptureModal() {
 function openDailyReportModal() {
   const dailyReports = getDailyReportRecords();
   const baselineCount = getAllHistoryRecords().filter(record => record.type === "Baseline").length;
+  const pendingDailyCount = dailyReports.filter(isPendingRecord).length;
 
   dailyReportMeta.textContent = dailyReports.length
-    ? `${latestCheckDate} 기준 확인할 UI 구조 변경 ${dailyReports.length}건`
+    ? pendingDailyCount
+      ? `${latestCheckDate} 기준 확인할 UI 구조 변경 ${pendingDailyCount}건`
+      : `${latestCheckDate} 기준 검토 완료된 UI 구조 변경 ${dailyReports.length}건`
     : `${latestCheckDate} 기준 변경 리포트 없음`;
 
   dailyReportBody.innerHTML = dailyReports.length
@@ -1512,7 +1704,7 @@ function openDailyReportModal() {
             .map(
               record => `
                 <button class="report-record" type="button" data-report-site-id="${escapeHtml(record.siteId)}">
-                  <span class="alert-status">${escapeHtml(record.type)}</span>
+                  <span class="alert-status">${escapeHtml(getReportStatusLabel(record))}</span>
                   <strong>${escapeHtml(record.siteName)}</strong>
                   <span>${escapeHtml(record.area)}</span>
                   <small>${escapeHtml(record.date)} · 상세보기로 이동</small>
@@ -1564,6 +1756,7 @@ function handleSurveySubmit(event) {
   site.lastScan = record.date;
   selectedSiteId = siteId;
   activeDetailTab = "history";
+  selectedHistoryIndex = 0;
   saveRecord(siteId, record);
   closeSurveyModal();
   window.location.hash = `#/site/${encodeURIComponent(siteId)}`;
@@ -1574,7 +1767,10 @@ function renderRoute() {
   const match = window.location.hash.match(/^#\/site\/(.+)$/);
   if (match) {
     const nextSiteId = decodeURIComponent(match[1]);
-    if (selectedSiteId !== nextSiteId) activeDetailTab = "overview";
+    if (selectedSiteId !== nextSiteId) {
+      activeDetailTab = "overview";
+      selectedHistoryIndex = 0;
+    }
     selectedSiteId = nextSiteId;
     listView.classList.add("is-hidden");
     detailView.classList.remove("is-hidden");
@@ -1630,6 +1826,36 @@ schoolTabs.forEach(tab => {
 });
 window.addEventListener("hashchange", renderRoute);
 detailView.addEventListener("click", event => {
+  const reviewAction = event.target.closest("[data-review-action]");
+  if (reviewAction) {
+    const site = sites.find(item => item.id === selectedSiteId);
+    const record = site?.history?.[selectedHistoryIndex];
+    if (!site || !record) return;
+    saveStatusDecision(site.id, record, selectedHistoryIndex, reviewAction.dataset.reviewAction);
+    renderDetail();
+    renderCards();
+    return;
+  }
+
+  const timelineButton = event.target.closest("[data-history-index]");
+  if (timelineButton) {
+    selectedHistoryIndex = Number(timelineButton.dataset.historyIndex) || 0;
+    activeDetailTab = "history";
+    renderDetail();
+    return;
+  }
+
+  const historyCaptureButton = event.target.closest("[data-history-capture-src]");
+  if (historyCaptureButton) {
+    openCaptureModal({
+      name: historyCaptureButton.dataset.historyCaptureTitle || "감지 근거 이미지",
+      image: historyCaptureButton.dataset.historyCaptureSrc,
+      fullImage: historyCaptureButton.dataset.historyCaptureSrc,
+      scope: [historyCaptureButton.dataset.historyCaptureMeta || "UI Structure Signal"]
+    });
+    return;
+  }
+
   const trackedPageButton = event.target.closest("[data-open-tracked-page-modal]");
   if (trackedPageButton) {
     openTrackedPageModal();
@@ -1661,6 +1887,7 @@ detailView.addEventListener("click", event => {
   const historyButton = event.target.closest("[data-full-history], [data-status-jump]");
   if (historyButton) {
     activeDetailTab = "history";
+    selectedHistoryIndex = 0;
     renderDetail();
     return;
   }
@@ -1668,6 +1895,7 @@ detailView.addEventListener("click", event => {
   const tabButton = event.target.closest("[data-detail-tab]");
   if (!tabButton) return;
   activeDetailTab = tabButton.dataset.detailTab;
+  if (activeDetailTab === "history") selectedHistoryIndex = 0;
   renderDetail();
 });
 newSurveyButton.addEventListener("click", openSurveyModal);
@@ -1699,6 +1927,7 @@ dailyReportModal.addEventListener("click", event => {
   closeDailyReportModal();
   selectedSiteId = reportRecord.dataset.reportSiteId;
   activeDetailTab = "history";
+  selectedHistoryIndex = 0;
   window.location.hash = `#/site/${encodeURIComponent(reportRecord.dataset.reportSiteId)}`;
 });
 window.addEventListener("keydown", event => {
@@ -1716,6 +1945,7 @@ window.addEventListener("keydown", event => {
   }
 });
 
+loadStatusDecisions();
 loadSavedRecords();
 loadSavedTrackedPages();
 renderSurveyOptions();
