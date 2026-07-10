@@ -1,6 +1,9 @@
 [
   {
     "id": "vivasam",
+    "siteId": "vivasam",
+    "pageId": "main",
+    "pageName": "메인",
     "ok": true,
     "cleanFile": "vivasam-full-clean.png",
     "legacyFile": "vivasam-full.png",
@@ -18,24 +21,39 @@
       "navSignature": "교과 자료 평가 자료 문제은행 학교 자율 시간 New 에듀테크 테마관 창체 샘스토리 수업 연구소 쉬는 시간 비바샘터 | 교과 자료 평가 자료 문제은행 학교 자율 시간 New 에듀테크 테마관 창체 샘스토리 수업 연구소 쉬는 시간 비바샘터 | 교과 자료 평가 자료 문제은행 학교 자율 시간 New 에듀테크 테마관 창체 샘스토리 수업 연구소 쉬는 시간 비바샘터 | 전체 메뉴 한 눈에 보기 교과 자료 1학년 2학년 3학년 4학년 5학년 6학년 평가 자료 1학년 2학년 3학년 4학년 5학년 6학년 문제은행 스마트 문제은행 문제은행 (출제 마법사) 학교 자율 시간 수업 꾸러미 자료 | 전체 메뉴 한 눈에 보기 교과 자료 1학년 2학년 3학년 4학년 5학년 6학년 평가 자료 1학년 2학년 3학년 4학년 5학년 6학년 문제은행 스마트 문제은행 문제은행 (출제 마법사) 학교 자율 시간 수업 꾸러미 자료 | 교과 자료 1학년 2학년 3학년 4학년 5학년 6학년 평가 자료 1학년 2학년 3학년 4학년 5학년 6학년 문제은행 스마트 문제은행 문제은행 (출제 마법사) 학교 자율 시간 수업 꾸러미 자료 학교 자율 시간 안내 에",
       "headingSignature": "전체 메뉴 한 눈에 보기 | 우리반 수업에 바로 활용해 보세요! | 업무 경감 및 학급 경영을 위한 치트키! | 우리반 전용 에듀테크 수업 자료 | 문해력 어휘지수 | 영어 기초학력+ | 비바샘 미술관 | 수학 마을 | 실감형 사회관 | 수학 디지털 교구 | 실감형 과학관 | 비바샘 음악관",
       "buttonCount": 73,
-      "linkCount": 378,
+      "linkCount": 377,
       "fixedElementCount": 1
     },
     "structure": {
       "changed": false,
       "reasons": [
-        "링크 수: 379 → 378"
+        "링크 수: 378 → 377"
       ]
     }
   },
   {
     "id": "tsherpa",
+    "siteId": "tsherpa",
+    "pageId": "main",
+    "pageName": "메인",
     "ok": false,
     "cleanFile": "tsherpa-full-clean.png",
     "error": "page.goto: Timeout 60000ms exceeded.\nCall log:\n  - navigating to \"https://ele.tsherpa.co.kr/\", waiting until \"domcontentloaded\"\n"
   },
   {
+    "id": "tsherpa-curri",
+    "siteId": "tsherpa",
+    "pageId": "curri",
+    "pageName": "교과학습",
+    "ok": false,
+    "cleanFile": "tsherpa-curri-full-clean.png",
+    "error": "page.goto: Timeout 60000ms exceeded.\nCall log:\n  - navigating to \"https://ele.tsherpa.co.kr/curri/E-curri_list.html?semester=1&grade=3&curri=\", waiting until \"domcontentloaded\"\n"
+  },
+  {
     "id": "mteacher",
+    "siteId": "mteacher",
+    "pageId": "main",
+    "pageName": "메인",
     "ok": true,
     "cleanFile": "mteacher-full-clean.png",
     "legacyFile": "mteacher-full.png",
@@ -55,15 +73,15 @@
       "fixedElementCount": 2
     },
     "structure": {
-      "changed": true,
-      "reasons": [
-        "버튼 수: 89 → 84",
-        "링크 수: 373 → 375"
-      ]
+      "changed": false,
+      "reasons": []
     }
   },
   {
     "id": "jihak",
+    "siteId": "jihak",
+    "pageId": "main",
+    "pageName": "메인",
     "ok": true,
     "cleanFile": "jihak-full-clean.png",
     "legacyFile": "jihak-full.png",
@@ -76,7 +94,7 @@
       "scrollWidth": 1920,
       "scrollHeight": 4327,
       "visibleDialogs": 0,
-      "navSignature": "초등 중학 고등 티솔루션 바로 접속 교과서 홍보관 AI 디지털 교육자료 로그인 나의 교실 1:1 문의 내역 이벤트 고객센터 7월 폭염 안전 수칙 교과활동 평가자료 창의적 체험활동 학교 자율시간 게임 활동 수업 기초학 | 초등 중학 고등 티솔루션 바로 접속 교과서 홍보관 AI 디지털 교육자료 로그인 나의 교실 1:1 문의 내역 이벤트 고객센터 | 교과활동 평가자료 창의적 체험활동 학교 자율시간 게임 활동 수업 기초학력·아침활동 학급운영 | 교과활동 평가자료 창의적 체험활동 학교 자율시간 게임 활동 수업 기초학력·아침활동 학급운영",
+      "navSignature": "초등 중학 고등 티솔루션 바로 접속 교과서 홍보관 AI 디지털 교육자료 로그인 나의 교실 1:1 문의 내역 이벤트 고객센터 7월 11일 [AI활용] 세계 인구의 날 교과활동 평가자료 창의적 체험활동 학교 자율시간 게 | 초등 중학 고등 티솔루션 바로 접속 교과서 홍보관 AI 디지털 교육자료 로그인 나의 교실 1:1 문의 내역 이벤트 고객센터 | 교과활동 평가자료 창의적 체험활동 학교 자율시간 게임 활동 수업 기초학력·아침활동 학급운영 | 교과활동 평가자료 창의적 체험활동 학교 자율시간 게임 활동 수업 기초학력·아침활동 학급운영",
       "headingSignature": "Quick Menu | Quick Menu | 공지사항 | 신중하게 골랐어요! | 티솔루션 협업 자료 | NEW 초등 독서평설 | 이번 달 티솔 하이라이트! | 사회 | 과학 | 연간지도계획ㆍ진도표(2022년)",
       "buttonCount": 17,
       "linkCount": 160,
@@ -85,12 +103,15 @@
     "structure": {
       "changed": false,
       "reasons": [
-        "상단 탐색 구조: 초등 중학 고등 티솔루션 바로 접속 교과서 홍보관 AI 디지털 교육자료 로그인 나의 교실 1:1 문의 내역 이벤트 고객센터 7월 11일 [AI활용] 세계 인구의 날 교과활동 평가자료 창의적 체험활동 학교 자율시간 게 | 초등 중학 고등 티솔루션 바로 접속 교과서 홍보관 AI 디지털 교육자료 로그인 나의 교실 1:1 문의 내역 이벤트 고객센터 | 교과활동 평가자료 창의적 체험활동 학교 자율시간 게임 활동 수업 기초학력·아침활동 학급운영 | 교과활동 평가자료 창의적 체험활동 학교 자율시간 게임 활동 수업 기초학력·아침활동 학급운영 → 초등 중학 고등 티솔루션 바로 접속 교과서 홍보관 AI 디지털 교육자료 로그인 나의 교실 1:1 문의 내역 이벤트 고객센터 7월 폭염 안전 수칙 교과활동 평가자료 창의적 체험활동 학교 자율시간 게임 활동 수업 기초학 | 초등 중학 고등 티솔루션 바로 접속 교과서 홍보관 AI 디지털 교육자료 로그인 나의 교실 1:1 문의 내역 이벤트 고객센터 | 교과활동 평가자료 창의적 체험활동 학교 자율시간 게임 활동 수업 기초학력·아침활동 학급운영 | 교과활동 평가자료 창의적 체험활동 학교 자율시간 게임 활동 수업 기초학력·아침활동 학급운영"
+        "상단 탐색 구조: 초등 중학 고등 티솔루션 바로 접속 교과서 홍보관 AI 디지털 교육자료 로그인 나의 교실 1:1 문의 내역 이벤트 고객센터 7월 폭염 안전 수칙 교과활동 평가자료 창의적 체험활동 학교 자율시간 게임 활동 수업 기초학 | 초등 중학 고등 티솔루션 바로 접속 교과서 홍보관 AI 디지털 교육자료 로그인 나의 교실 1:1 문의 내역 이벤트 고객센터 | 교과활동 평가자료 창의적 체험활동 학교 자율시간 게임 활동 수업 기초학력·아침활동 학급운영 | 교과활동 평가자료 창의적 체험활동 학교 자율시간 게임 활동 수업 기초학력·아침활동 학급운영 → 초등 중학 고등 티솔루션 바로 접속 교과서 홍보관 AI 디지털 교육자료 로그인 나의 교실 1:1 문의 내역 이벤트 고객센터 7월 11일 [AI활용] 세계 인구의 날 교과활동 평가자료 창의적 체험활동 학교 자율시간 게 | 초등 중학 고등 티솔루션 바로 접속 교과서 홍보관 AI 디지털 교육자료 로그인 나의 교실 1:1 문의 내역 이벤트 고객센터 | 교과활동 평가자료 창의적 체험활동 학교 자율시간 게임 활동 수업 기초학력·아침활동 학급운영 | 교과활동 평가자료 창의적 체험활동 학교 자율시간 게임 활동 수업 기초학력·아침활동 학급운영"
       ]
     }
   },
   {
     "id": "vivasam-secondary",
+    "siteId": "vivasam-secondary",
+    "pageId": "main",
+    "pageName": "메인",
     "ok": true,
     "cleanFile": "vivasam-secondary-full-clean.png",
     "legacyFile": "vivasam-secondary-full.png",
@@ -113,24 +134,30 @@
       "navSignature": "설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 | NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 | 비바샘터",
       "headingSignature": "비바샘 | 살아있는 수업 | 계기 교육 | 온라인 수업 | 자유학기 수업 | 주제별 교육 | 샘스토리 | 라이브러리 | 샘스토리 | 살아있는 수업 | 온라인 수업 | 자유학기 수업",
       "buttonCount": 37,
-      "linkCount": 537,
+      "linkCount": 535,
       "fixedElementCount": 2
     },
     "structure": {
       "changed": false,
       "reasons": [
-        "링크 수: 542 → 537"
+        "링크 수: 537 → 535"
       ]
     }
   },
   {
     "id": "tsherpa-secondary",
+    "siteId": "tsherpa-secondary",
+    "pageId": "main",
+    "pageName": "메인",
     "ok": false,
     "cleanFile": "tsherpa-secondary-full-clean.png",
     "error": "page.goto: Timeout 60000ms exceeded.\nCall log:\n  - navigating to \"https://mh.tsherpa.co.kr/\", waiting until \"domcontentloaded\"\n"
   },
   {
     "id": "mteacher-middle",
+    "siteId": "mteacher-middle",
+    "pageId": "main",
+    "pageName": "메인",
     "ok": true,
     "cleanFile": "mteacher-middle-full-clean.png",
     "legacyFile": "mteacher-middle-full.png",
@@ -145,19 +172,23 @@
       "visibleDialogs": 0,
       "navSignature": "Quick Menu 아이디 저장 로그인 회원가입 ID / PW 찾기 나의 즐겨찾기 스크랩 M드라이브 월간퀴즈 이벤트 툴박스 타이머 랜덤뽑기 모둠만들기 점수판 메모 AI클래스 AI 학습지 퀴즈온 모둠활동 보드 | 나의 즐겨찾기 스크랩 M드라이브 | 월간퀴즈 이벤트 | 툴박스 타이머 랜덤뽑기 모둠만들기 점수판 메모 AI클래스 AI 학습지 퀴즈온 모둠활동 보드 | 툴박스 타이머 랜덤뽑기 모둠만들기 점수판 메모 | 타이머 랜덤뽑기 모둠만들기 점수판 메모 | 타이머 | 디지털 아날로그 파이 촛불 모래시계",
       "headingSignature": "아이엠티처 로그인 연동 종료 안내 | 엠티처 바로 접속 | 엠티처를 가장 빠르게 이용하는 방법 | 설치 방법 | 내 교과서 | 자주 찾는 질문 | 1:1 문의 | 서비스 안내 | 전국 지사 안내 | 카카오톡 상담 | 전화문의",
-      "buttonCount": 50,
-      "linkCount": 199,
+      "buttonCount": 44,
+      "linkCount": 197,
       "fixedElementCount": 2
     },
     "structure": {
-      "changed": false,
+      "changed": true,
       "reasons": [
-        "링크 수: 198 → 199"
+        "버튼 수: 50 → 44",
+        "링크 수: 199 → 197"
       ]
     }
   },
   {
     "id": "mteacher-high",
+    "siteId": "mteacher-high",
+    "pageId": "main",
+    "pageName": "메인",
     "ok": true,
     "cleanFile": "mteacher-high-full-clean.png",
     "legacyFile": "mteacher-high-full.png",
@@ -178,13 +209,14 @@
     },
     "structure": {
       "changed": false,
-      "reasons": [
-        "링크 수: 202 → 203"
-      ]
+      "reasons": []
     }
   },
   {
     "id": "jihak-middle",
+    "siteId": "jihak-middle",
+    "pageId": "main",
+    "pageName": "메인",
     "ok": true,
     "cleanFile": "jihak-middle-full-clean.png",
     "legacyFile": "jihak-middle-full.png",
@@ -198,21 +230,24 @@
       "scrollHeight": 3110,
       "visibleDialogs": 0,
       "navSignature": "초등 중학 고등 티솔루션 바로 접속 교과서 홍보관 AI 디지털 교육자료 로그인 나의 교실 1:1 문의 내역 이벤트 고객센터 국어 영어 수학 사회/역사/도덕 과학 음악/미술/체육 기술·가정/진로와 직업 한문 | 초등 중학 고등 티솔루션 바로 접속 교과서 홍보관 AI 디지털 교육자료 로그인 나의 교실 1:1 문의 내역 이벤트 고객센터 | 국어 영어 수학 사회/역사/도덕 과학 음악/미술/체육 기술·가정/진로와 직업 한문 | 국어 영어 수학 사회/역사/도덕 과학 음악/미술/체육 기술·가정/진로와 직업 한문",
-      "headingSignature": "Quick Menu | Quick Menu | 공지사항 | 도덕 수업자료, 지금 바로 만나 보세요! | NEW 중학 독서평설 | 이번 달 티솔 하이라이트! | 사회 | 과학 | 연간지도계획ㆍ진도표(2022년) | 환경자료새학기 교실 환경 꾸미기 이미지 자료 (교실 환경+칭찬보상 쿠폰 등)",
+      "headingSignature": "Quick Menu | Quick Menu | 공지사항 | 수학 수업자료, 지금 바로 만나 보세요! | NEW 중학 독서평설 | 이번 달 티솔 하이라이트! | 사회 | 과학 | 연간지도계획ㆍ진도표(2022년) | 환경자료새학기 교실 환경 꾸미기 이미지 자료 (교실 환경+칭찬보상 쿠폰 등)",
       "buttonCount": 19,
-      "linkCount": 151,
+      "linkCount": 152,
       "fixedElementCount": 3
     },
     "structure": {
       "changed": true,
       "reasons": [
-        "주요 제목 구조: Quick Menu | Quick Menu | 공지사항 | 수학 수업자료, 지금 바로 만나 보세요! | NEW 중학 독서평설 | 이번 달 티솔 하이라이트! | 사회 | 과학 | 연간지도계획ㆍ진도표(2022년) | 환경자료새학기 교실 환경 꾸미기 이미지 자료 (교실 환경+칭찬보상 쿠폰 등) → Quick Menu | Quick Menu | 공지사항 | 도덕 수업자료, 지금 바로 만나 보세요! | NEW 중학 독서평설 | 이번 달 티솔 하이라이트! | 사회 | 과학 | 연간지도계획ㆍ진도표(2022년) | 환경자료새학기 교실 환경 꾸미기 이미지 자료 (교실 환경+칭찬보상 쿠폰 등)",
-        "링크 수: 152 → 151"
+        "주요 제목 구조: Quick Menu | Quick Menu | 공지사항 | 도덕 수업자료, 지금 바로 만나 보세요! | NEW 중학 독서평설 | 이번 달 티솔 하이라이트! | 사회 | 과학 | 연간지도계획ㆍ진도표(2022년) | 환경자료새학기 교실 환경 꾸미기 이미지 자료 (교실 환경+칭찬보상 쿠폰 등) → Quick Menu | Quick Menu | 공지사항 | 수학 수업자료, 지금 바로 만나 보세요! | NEW 중학 독서평설 | 이번 달 티솔 하이라이트! | 사회 | 과학 | 연간지도계획ㆍ진도표(2022년) | 환경자료새학기 교실 환경 꾸미기 이미지 자료 (교실 환경+칭찬보상 쿠폰 등)",
+        "링크 수: 151 → 152"
       ]
     }
   },
   {
     "id": "jihak-high",
+    "siteId": "jihak-high",
+    "pageId": "main",
+    "pageName": "메인",
     "ok": true,
     "cleanFile": "jihak-high-full-clean.png",
     "legacyFile": "jihak-high-full.png",
@@ -226,17 +261,17 @@
       "scrollHeight": 3110,
       "visibleDialogs": 0,
       "navSignature": "초등 중학 고등 티솔루션 바로 접속 교과서 홍보관 AI 디지털 교육자료 로그인 나의 교실 1:1 문의 내역 이벤트 고객센터 국어 영어 수학 사회/역사 과학 음악/미술/체육 기술·가정/진로와 직업 선택/외국어 진로진학 | 초등 중학 고등 티솔루션 바로 접속 교과서 홍보관 AI 디지털 교육자료 로그인 나의 교실 1:1 문의 내역 이벤트 고객센터 | 국어 영어 수학 사회/역사 과학 음악/미술/체육 기술·가정/진로와 직업 선택/외국어 진로진학 | 국어 영어 수학 사회/역사 과학 음악/미술/체육 기술·가정/진로와 직업 선택/외국어 진로진학",
-      "headingSignature": "Quick Menu | Quick Menu | 공지사항 | 음악 수업자료, 지금 바로 만나 보세요! | NEW 고등 독서평설 | 이번 달 티솔 하이라이트! | 사회 | 과학 | 연간지도계획ㆍ진도표(2022년) | 환경자료새학기 교실 환경 꾸미기 이미지 자료 (교실 환경+칭찬보상 쿠폰 등)",
-      "buttonCount": 18,
-      "linkCount": 169,
+      "headingSignature": "Quick Menu | Quick Menu | 공지사항 | 국어 수업자료, 지금 바로 만나 보세요! | NEW 고등 독서평설 | 이번 달 티솔 하이라이트! | 사회 | 과학 | 연간지도계획ㆍ진도표(2022년) | 환경자료새학기 교실 환경 꾸미기 이미지 자료 (교실 환경+칭찬보상 쿠폰 등)",
+      "buttonCount": 22,
+      "linkCount": 190,
       "fixedElementCount": 3
     },
     "structure": {
       "changed": true,
       "reasons": [
-        "주요 제목 구조: Quick Menu | Quick Menu | 공지사항 | 수학 수업자료, 지금 바로 만나 보세요! | NEW 고등 독서평설 | 이번 달 티솔 하이라이트! | 사회 | 과학 | 연간지도계획ㆍ진도표(2022년) | 환경자료새학기 교실 환경 꾸미기 이미지 자료 (교실 환경+칭찬보상 쿠폰 등) → Quick Menu | Quick Menu | 공지사항 | 음악 수업자료, 지금 바로 만나 보세요! | NEW 고등 독서평설 | 이번 달 티솔 하이라이트! | 사회 | 과학 | 연간지도계획ㆍ진도표(2022년) | 환경자료새학기 교실 환경 꾸미기 이미지 자료 (교실 환경+칭찬보상 쿠폰 등)",
-        "버튼 수: 22 → 18",
-        "링크 수: 195 → 169"
+        "주요 제목 구조: Quick Menu | Quick Menu | 공지사항 | 음악 수업자료, 지금 바로 만나 보세요! | NEW 고등 독서평설 | 이번 달 티솔 하이라이트! | 사회 | 과학 | 연간지도계획ㆍ진도표(2022년) | 환경자료새학기 교실 환경 꾸미기 이미지 자료 (교실 환경+칭찬보상 쿠폰 등) → Quick Menu | Quick Menu | 공지사항 | 국어 수업자료, 지금 바로 만나 보세요! | NEW 고등 독서평설 | 이번 달 티솔 하이라이트! | 사회 | 과학 | 연간지도계획ㆍ진도표(2022년) | 환경자료새학기 교실 환경 꾸미기 이미지 자료 (교실 환경+칭찬보상 쿠폰 등)",
+        "버튼 수: 18 → 22",
+        "링크 수: 169 → 190"
       ]
     }
   }
