@@ -1,6 +1,6 @@
 const scanDate = "2026-07-02";
-let latestCheckDate = "2026-07-09";
-const assetVersion = "reviewed-report1";
+let latestCheckDate = "2026-07-19";
+const assetVersion = "scan-history1";
 const dailyReportPath = "./assets/daily-report.json";
 let automatedDailyReport = null;
 const versionAsset = (path) => (path ? `${path}?v=${assetVersion}` : path);
@@ -39,6 +39,24 @@ const sites = [
       tone: "오렌지 포인트와 화이트 기반의 업무형 포털"
     },
     history: [
+      {
+        autoId: "2026-07-10-mteacher-middle",
+        date: "2026-07-10",
+        type: "제외 처리",
+        changeType: "자동 구조 감지",
+        area: "UI Structure Signal",
+        asis: "이전 기준 캡쳐의 구조 시그니처",
+        tobe: "오늘 캡쳐의 구조 시그니처",
+        comment: "자동 감지된 구조 신호: 버튼 수: 50 → 44 / 링크 수: 199 → 197",
+        resolutionMemo: "검토 결과 배너·콘텐츠성 변화로 판단해 디자인 구조 변경 기록에서 제외",
+        resolvedAt: "2026-07-10",
+        evidence: {
+          label: "감지 당시 화면",
+          currentFull: "./assets/mteacher-middle-full-clean.png",
+          note: "자동 구조 감지 시점의 전체 캡처입니다."
+        },
+        reasons: ["버튼 수: 50 → 44", "링크 수: 199 → 197"]
+      },
       {
         date: scanDate,
         type: "Baseline",
@@ -102,6 +120,28 @@ const sites = [
     },
     history: [
       {
+        autoId: "2026-07-10-jihak-middle",
+        date: "2026-07-10",
+        type: "제외 처리",
+        changeType: "자동 구조 감지",
+        area: "UI Structure Signal",
+        asis: "이전 기준 캡쳐의 구조 시그니처",
+        tobe: "오늘 캡쳐의 구조 시그니처",
+        comment:
+          "자동 감지된 구조 신호: 주요 제목 구조와 링크 수 변화가 감지됨",
+        resolutionMemo: "검토 결과 배너·콘텐츠성 변화로 판단해 디자인 구조 변경 기록에서 제외",
+        resolvedAt: "2026-07-10",
+        evidence: {
+          label: "감지 당시 화면",
+          currentFull: "./assets/jihak-middle-full-clean.png",
+          note: "자동 구조 감지 시점의 전체 캡처입니다."
+        },
+        reasons: [
+          "주요 제목 구조 변화",
+          "링크 수: 151 → 152"
+        ]
+      },
+      {
         date: scanDate,
         type: "Baseline",
         area: "Textbook Access",
@@ -146,6 +186,29 @@ const sites = [
       tone: "화이트 베이스에 민트 포인트를 얹은 차분한 업무형"
     },
     history: [
+      {
+        autoId: "2026-07-10-jihak-high",
+        date: "2026-07-10",
+        type: "제외 처리",
+        changeType: "자동 구조 감지",
+        area: "UI Structure Signal",
+        asis: "이전 기준 캡쳐의 구조 시그니처",
+        tobe: "오늘 캡쳐의 구조 시그니처",
+        comment:
+          "자동 감지된 구조 신호: 주요 제목 구조, 버튼 수, 링크 수 변화가 감지됨",
+        resolutionMemo: "검토 결과 배너·콘텐츠성 변화로 판단해 디자인 구조 변경 기록에서 제외",
+        resolvedAt: "2026-07-10",
+        evidence: {
+          label: "감지 당시 화면",
+          currentFull: "./assets/jihak-high-full-clean.png",
+          note: "자동 구조 감지 시점의 전체 캡처입니다."
+        },
+        reasons: [
+          "주요 제목 구조 변화",
+          "버튼 수: 18 → 22",
+          "링크 수: 169 → 190"
+        ]
+      },
       {
         date: scanDate,
         type: "Baseline",
@@ -768,11 +831,24 @@ async function loadAutomatedDailyReport() {
     const response = await fetch(versionAsset(dailyReportPath), { cache: "no-store" });
     if (!response.ok) return;
     automatedDailyReport = await response.json();
-    if (automatedDailyReport?.date) latestCheckDate = automatedDailyReport.date;
+    if (automatedDailyReport?.date) {
+      latestCheckDate = automatedDailyReport.date;
+      updateScanDates(latestCheckDate);
+    }
     applyAutomatedReportRecords();
   } catch {
     automatedDailyReport = null;
   }
+}
+
+function updateScanDates(date) {
+  sites.forEach(site => {
+    site.lastScan = date;
+    if (!Array.isArray(site.trackedPages)) return;
+    site.trackedPages.forEach(page => {
+      page.lastScan = date;
+    });
+  });
 }
 
 function applyAutomatedReportRecords() {
