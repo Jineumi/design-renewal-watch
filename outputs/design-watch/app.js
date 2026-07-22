@@ -1,6 +1,6 @@
 const scanDate = "2026-07-02";
-let latestCheckDate = "2026-07-19";
-const assetVersion = "scan-history1";
+let latestCheckDate = "2026-07-20";
+const assetVersion = "scan-history2";
 const dailyReportPath = "./assets/daily-report.json";
 let automatedDailyReport = null;
 const versionAsset = (path) => (path ? `${path}?v=${assetVersion}` : path);
@@ -531,6 +531,59 @@ const sites = [
     ]
   }
 ];
+
+const preservedHistoryRecords = {
+  "jihak-middle": [
+    {
+      autoId: "2026-07-16-jihak-middle",
+      date: "2026-07-16",
+      type: "업데이트 완료",
+      changeType: "자동 구조 감지",
+      area: "UI Structure Signal",
+      asis: "이전 기준 캡쳐의 구조 시그니처",
+      tobe: "오늘 캡쳐의 구조 시그니처",
+      comment: "자동 감지 후 검토 완료된 UI 구조 변화 기록",
+      resolutionMemo: "담당자가 구조 신호를 확인하고 검토 완료 처리했습니다.",
+      resolvedAt: "2026-07-16",
+      evidence: {
+        label: "감지 당시 화면",
+        currentFull: "./assets/evidence/2026-07-16/jihak-middle-full.png",
+        previousFull: "./assets/evidence/2026-07-15/jihak-middle-full.png",
+        note: "자동 구조 감지 시점의 전체 캡처입니다."
+      },
+      reasons: ["UI Structure Signal"]
+    }
+  ],
+  "jihak-high": [
+    {
+      autoId: "2026-07-16-jihak-high",
+      date: "2026-07-16",
+      type: "업데이트 완료",
+      changeType: "자동 구조 감지",
+      area: "UI Structure Signal",
+      asis: "이전 기준 캡쳐의 구조 시그니처",
+      tobe: "오늘 캡쳐의 구조 시그니처",
+      comment: "자동 감지 후 검토 완료된 UI 구조 변화 기록",
+      resolutionMemo: "담당자가 구조 신호를 확인하고 검토 완료 처리했습니다.",
+      resolvedAt: "2026-07-16",
+      evidence: {
+        label: "감지 당시 화면",
+        currentFull: "./assets/evidence/2026-07-16/jihak-high-full.png",
+        previousFull: "./assets/evidence/2026-07-15/jihak-high-full.png",
+        note: "자동 구조 감지 시점의 전체 캡처입니다."
+      },
+      reasons: ["UI Structure Signal"]
+    }
+  ]
+};
+
+sites.forEach(site => {
+  const records = preservedHistoryRecords[site.id] || [];
+  records.forEach(record => {
+    const exists = site.history.some(item => item.autoId === record.autoId);
+    if (!exists) site.history.unshift(record);
+  });
+});
 
 const statusDescriptions = {
   Baseline: "최초 기준 화면 등록 상태. 이후 비교의 기준점입니다.",
