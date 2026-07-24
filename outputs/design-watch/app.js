@@ -1831,14 +1831,18 @@ function openDailyReportModal() {
         <div class="report-list">
           ${dailyReports
             .map(
-              record => `
-                <button class="report-record" type="button" data-report-site-id="${escapeHtml(record.siteId)}">
-                  <span class="alert-status">${escapeHtml(getReportStatusLabel(record))}</span>
+              record => {
+                const statusLabel = getReportStatusLabel(record);
+                const reviewedClass = statusLabel === "검토 완료" ? " is-reviewed" : "";
+                return `
+                <button class="report-record${reviewedClass}" type="button" data-report-site-id="${escapeHtml(record.siteId)}">
+                  <span class="alert-status">${escapeHtml(statusLabel)}</span>
                   <strong>${escapeHtml(record.siteName)}</strong>
                   <span>${escapeHtml(record.area)}</span>
                   <small>${escapeHtml(record.date)} · 상세보기로 이동</small>
                 </button>
-              `
+              `;
+              }
             )
             .join("")}
         </div>

@@ -2446,6 +2446,11 @@ h1 {
   box-shadow: 0 10px 24px rgba(45, 103, 232, 0.1);
 }
 
+.report-record.is-reviewed .alert-status {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
 .report-record strong {
   color: #111827;
   font-size: 16px;
