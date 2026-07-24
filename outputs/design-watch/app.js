@@ -1,5 +1,5 @@
 const scanDate = "2026-07-02";
-let latestCheckDate = "2026-07-20";
+let latestCheckDate = "2026-07-23";
 const assetVersion = "scan-history2";
 const dailyReportPath = "./assets/daily-report.json";
 let automatedDailyReport = null;
