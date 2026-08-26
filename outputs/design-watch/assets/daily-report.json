@@ -1,80 +1,153 @@
 {
-  "date": "2026-08-25",
-  "generatedAt": "2026-08-25T00:39:48.925Z",
+  "date": "2026-08-26",
+  "generatedAt": "2026-08-26T00:41:06.667Z",
   "status": "needs-review",
   "policy": "배너·썸네일·이벤트 이미지는 제외하고, UI 구조와 탐색 흐름 변화만 기록합니다.",
-  "summary": "확인할 UI 구조 변화 3건",
+  "summary": "확인할 UI 구조 변화 6건",
   "records": [
     {
-      "id": "2026-08-25-mteacher",
+      "id": "2026-08-26-mteacher",
       "siteId": "mteacher",
       "pageId": "main",
       "pageName": "메인",
       "siteName": "엠티처 초등",
-      "date": "2026-08-25",
+      "date": "2026-08-26",
       "type": "검토 필요",
       "changeType": "자동 구조 감지",
       "area": "UI Structure Signal",
       "asis": "이전 기준 캡쳐의 구조 시그니처",
       "tobe": "오늘 캡쳐의 구조 시그니처",
-      "comment": "자동 감지된 구조 신호: 버튼 수: 92 → 90 / 링크 수: 369 → 370",
+      "comment": "자동 감지된 구조 신호: 버튼 수: 90 → 89 / 링크 수: 370 → 369",
       "evidence": {
         "label": "오늘 감지 화면",
-        "currentFull": "./assets/evidence/2026-08-25/mteacher-full.png",
-        "previousFull": "./assets/evidence/2026-08-24/mteacher-full.png",
+        "currentFull": "./assets/evidence/2026-08-26/mteacher-full.png",
+        "previousFull": "./assets/evidence/2026-08-25/mteacher-full.png",
         "note": "자동 구조 감지 시점의 전체 캡처입니다. 이후 영역 단위 crop으로 확장할 수 있습니다."
       },
       "reasons": [
-        "버튼 수: 92 → 90",
-        "링크 수: 369 → 370"
+        "버튼 수: 90 → 89",
+        "링크 수: 370 → 369"
       ]
     },
     {
-      "id": "2026-08-25-jihak-middle",
-      "siteId": "jihak-middle",
+      "id": "2026-08-26-vivasam-secondary",
+      "siteId": "vivasam-secondary",
       "pageId": "main",
       "pageName": "메인",
-      "siteName": "티솔루션 중등",
-      "date": "2026-08-25",
+      "siteName": "중·고등 비바샘",
+      "date": "2026-08-26",
       "type": "검토 필요",
       "changeType": "자동 구조 감지",
       "area": "UI Structure Signal",
       "asis": "이전 기준 캡쳐의 구조 시그니처",
       "tobe": "오늘 캡쳐의 구조 시그니처",
-      "comment": "자동 감지된 구조 신호: 주요 제목 구조: Quick Menu | Quick Menu | 공지사항 | 음악 수업자료, 지금 바로 만나 보세요! | NEW 중학 독서평설 | 이번 달 티솔 하이라이트! | 사회 | 과학 | 연간지도계획ㆍ진도표(2022년) | 환경자료새학기 교실 환경 꾸미기 이미지 자료 (교실 환경+칭찬보상 쿠폰 등) → Quick Menu | Quick Menu | 공지사항 | 영어 수업자료, 지금 바로 만나 보세요! | NEW 중학 독서평설 | 이번 달 티솔 하이라이트! | 사회 | 과학 | 연간지도계획ㆍ진도표(2022년) | 환경자료새학기 교실 환경 꾸미기 이미지 자료 (교실 환경+칭찬보상 쿠폰 등) / 링크 수: 147 → 153",
+      "comment": "자동 감지된 구조 신호: 버튼 수: 32 → 33 / 링크 수: 532 → 539",
       "evidence": {
         "label": "오늘 감지 화면",
-        "currentFull": "./assets/evidence/2026-08-25/jihak-middle-full.png",
-        "previousFull": "./assets/evidence/2026-08-24/jihak-middle-full.png",
-        "note": "자동 구조 감지 시점의 전체 캡처입니다. 이후 영역 단위 crop으로 확장할 수 있습니다."
-      },
-      "reasons": [
-        "주요 제목 구조: Quick Menu | Quick Menu | 공지사항 | 음악 수업자료, 지금 바로 만나 보세요! | NEW 중학 독서평설 | 이번 달 티솔 하이라이트! | 사회 | 과학 | 연간지도계획ㆍ진도표(2022년) | 환경자료새학기 교실 환경 꾸미기 이미지 자료 (교실 환경+칭찬보상 쿠폰 등) → Quick Menu | Quick Menu | 공지사항 | 영어 수업자료, 지금 바로 만나 보세요! | NEW 중학 독서평설 | 이번 달 티솔 하이라이트! | 사회 | 과학 | 연간지도계획ㆍ진도표(2022년) | 환경자료새학기 교실 환경 꾸미기 이미지 자료 (교실 환경+칭찬보상 쿠폰 등)",
-        "링크 수: 147 → 153"
-      ]
-    },
-    {
-      "id": "2026-08-25-jihak-high",
-      "siteId": "jihak-high",
-      "pageId": "main",
-      "pageName": "메인",
-      "siteName": "티솔루션 고등",
-      "date": "2026-08-25",
-      "type": "검토 필요",
-      "changeType": "자동 구조 감지",
-      "area": "UI Structure Signal",
-      "asis": "이전 기준 캡쳐의 구조 시그니처",
-      "tobe": "오늘 캡쳐의 구조 시그니처",
-      "comment": "자동 감지된 구조 신호: 주요 제목 구조: Quick Menu | Quick Menu | 공지사항 | 과학 수업자료, 지금 바로 만나 보세요! | NEW 고등 독서평설 | 이번 달 티솔 하이라이트! | 사회 | 과학 | 연간지도계획ㆍ진도표(2022년) | 환경자료새학기 교실 환경 꾸미기 이미지 자료 (교실 환경+칭찬보상 쿠폰 등) → Quick Menu | Quick Menu | 공지사항 | 영어 수업자료, 지금 바로 만나 보세요! | NEW 고등 독서평설 | 이번 달 티솔 하이라이트! | 사회 | 과학 | 연간지도계획ㆍ진도표(2022년) | 환경자료새학기 교실 환경 꾸미기 이미지 자료 (교실 환경+칭찬보상 쿠폰 등) / 링크 수: 187 → 182",
-      "evidence": {
-        "label": "오늘 감지 화면",
-        "currentFull": "./assets/evidence/2026-08-25/jihak-high-full.png",
+        "currentFull": "./assets/evidence/2026-08-26/vivasam-secondary-full.png",
         "previousFull": "",
         "note": "자동 구조 감지 시점의 전체 캡처입니다. 이후 영역 단위 crop으로 확장할 수 있습니다."
       },
       "reasons": [
-        "주요 제목 구조: Quick Menu | Quick Menu | 공지사항 | 과학 수업자료, 지금 바로 만나 보세요! | NEW 고등 독서평설 | 이번 달 티솔 하이라이트! | 사회 | 과학 | 연간지도계획ㆍ진도표(2022년) | 환경자료새학기 교실 환경 꾸미기 이미지 자료 (교실 환경+칭찬보상 쿠폰 등) → Quick Menu | Quick Menu | 공지사항 | 영어 수업자료, 지금 바로 만나 보세요! | NEW 고등 독서평설 | 이번 달 티솔 하이라이트! | 사회 | 과학 | 연간지도계획ㆍ진도표(2022년) | 환경자료새학기 교실 환경 꾸미기 이미지 자료 (교실 환경+칭찬보상 쿠폰 등)",
-        "링크 수: 187 → 182"
+        "버튼 수: 32 → 33",
+        "링크 수: 532 → 539"
+      ]
+    },
+    {
+      "id": "2026-08-26-mteacher-middle",
+      "siteId": "mteacher-middle",
+      "pageId": "main",
+      "pageName": "메인",
+      "siteName": "엠티처 중등",
+      "date": "2026-08-26",
+      "type": "검토 필요",
+      "changeType": "자동 구조 감지",
+      "area": "UI Structure Signal",
+      "asis": "이전 기준 캡쳐의 구조 시그니처",
+      "tobe": "오늘 캡쳐의 구조 시그니처",
+      "comment": "자동 감지된 구조 신호: 버튼 수: 50 → 49 / 링크 수: 200 → 199",
+      "evidence": {
+        "label": "오늘 감지 화면",
+        "currentFull": "./assets/evidence/2026-08-26/mteacher-middle-full.png",
+        "previousFull": "",
+        "note": "자동 구조 감지 시점의 전체 캡처입니다. 이후 영역 단위 crop으로 확장할 수 있습니다."
+      },
+      "reasons": [
+        "버튼 수: 50 → 49",
+        "링크 수: 200 → 199"
+      ]
+    },
+    {
+      "id": "2026-08-26-mteacher-high",
+      "siteId": "mteacher-high",
+      "pageId": "main",
+      "pageName": "메인",
+      "siteName": "엠티처 고등",
+      "date": "2026-08-26",
+      "type": "검토 필요",
+      "changeType": "자동 구조 감지",
+      "area": "UI Structure Signal",
+      "asis": "이전 기준 캡쳐의 구조 시그니처",
+      "tobe": "오늘 캡쳐의 구조 시그니처",
+      "comment": "자동 감지된 구조 신호: 버튼 수: 50 → 49 / 링크 수: 217 → 216",
+      "evidence": {
+        "label": "오늘 감지 화면",
+        "currentFull": "./assets/evidence/2026-08-26/mteacher-high-full.png",
+        "previousFull": "",
+        "note": "자동 구조 감지 시점의 전체 캡처입니다. 이후 영역 단위 crop으로 확장할 수 있습니다."
+      },
+      "reasons": [
+        "버튼 수: 50 → 49",
+        "링크 수: 217 → 216"
+      ]
+    },
+    {
+      "id": "2026-08-26-jihak-middle",
+      "siteId": "jihak-middle",
+      "pageId": "main",
+      "pageName": "메인",
+      "siteName": "티솔루션 중등",
+      "date": "2026-08-26",
+      "type": "검토 필요",
+      "changeType": "자동 구조 감지",
+      "area": "UI Structure Signal",
+      "asis": "이전 기준 캡쳐의 구조 시그니처",
+      "tobe": "오늘 캡쳐의 구조 시그니처",
+      "comment": "자동 감지된 구조 신호: 주요 제목 구조: Quick Menu | Quick Menu | 공지사항 | 영어 수업자료, 지금 바로 만나 보세요! | NEW 중학 독서평설 | 이번 달 티솔 하이라이트! | 사회 | 과학 | 연간지도계획ㆍ진도표(2022년) | 환경자료새학기 교실 환경 꾸미기 이미지 자료 (교실 환경+칭찬보상 쿠폰 등) → Quick Menu | Quick Menu | 공지사항 | 체육 수업자료, 지금 바로 만나 보세요! | NEW 중학 독서평설 | 이번 달 티솔 하이라이트! | 사회 | 과학 | 연간지도계획ㆍ진도표(2022년) | 환경자료새학기 교실 환경 꾸미기 이미지 자료 (교실 환경+칭찬보상 쿠폰 등) / 링크 수: 153 → 148",
+      "evidence": {
+        "label": "오늘 감지 화면",
+        "currentFull": "./assets/evidence/2026-08-26/jihak-middle-full.png",
+        "previousFull": "./assets/evidence/2026-08-25/jihak-middle-full.png",
+        "note": "자동 구조 감지 시점의 전체 캡처입니다. 이후 영역 단위 crop으로 확장할 수 있습니다."
+      },
+      "reasons": [
+        "주요 제목 구조: Quick Menu | Quick Menu | 공지사항 | 영어 수업자료, 지금 바로 만나 보세요! | NEW 중학 독서평설 | 이번 달 티솔 하이라이트! | 사회 | 과학 | 연간지도계획ㆍ진도표(2022년) | 환경자료새학기 교실 환경 꾸미기 이미지 자료 (교실 환경+칭찬보상 쿠폰 등) → Quick Menu | Quick Menu | 공지사항 | 체육 수업자료, 지금 바로 만나 보세요! | NEW 중학 독서평설 | 이번 달 티솔 하이라이트! | 사회 | 과학 | 연간지도계획ㆍ진도표(2022년) | 환경자료새학기 교실 환경 꾸미기 이미지 자료 (교실 환경+칭찬보상 쿠폰 등)",
+        "링크 수: 153 → 148"
+      ]
+    },
+    {
+      "id": "2026-08-26-jihak-high",
+      "siteId": "jihak-high",
+      "pageId": "main",
+      "pageName": "메인",
+      "siteName": "티솔루션 고등",
+      "date": "2026-08-26",
+      "type": "검토 필요",
+      "changeType": "자동 구조 감지",
+      "area": "UI Structure Signal",
+      "asis": "이전 기준 캡쳐의 구조 시그니처",
+      "tobe": "오늘 캡쳐의 구조 시그니처",
+      "comment": "자동 감지된 구조 신호: 주요 제목 구조: Quick Menu | Quick Menu | 공지사항 | 영어 수업자료, 지금 바로 만나 보세요! | NEW 고등 독서평설 | 이번 달 티솔 하이라이트! | 사회 | 과학 | 연간지도계획ㆍ진도표(2022년) | 환경자료새학기 교실 환경 꾸미기 이미지 자료 (교실 환경+칭찬보상 쿠폰 등) → Quick Menu | Quick Menu | 공지사항 | 기술·가정 수업자료, 지금 바로 만나 보세요! | NEW 고등 독서평설 | 이번 달 티솔 하이라이트! | 사회 | 과학 | 연간지도계획ㆍ진도표(2022년) | 환경자료새학기 교실 환경 꾸미기 이미지 자료 (교실 환경+칭찬보상 쿠폰 등) / 버튼 수: 50 → 47 / 링크 수: 182 → 169",
+      "evidence": {
+        "label": "오늘 감지 화면",
+        "currentFull": "./assets/evidence/2026-08-26/jihak-high-full.png",
+        "previousFull": "./assets/evidence/2026-08-25/jihak-high-full.png",
+        "note": "자동 구조 감지 시점의 전체 캡처입니다. 이후 영역 단위 crop으로 확장할 수 있습니다."
+      },
+      "reasons": [
+        "주요 제목 구조: Quick Menu | Quick Menu | 공지사항 | 영어 수업자료, 지금 바로 만나 보세요! | NEW 고등 독서평설 | 이번 달 티솔 하이라이트! | 사회 | 과학 | 연간지도계획ㆍ진도표(2022년) | 환경자료새학기 교실 환경 꾸미기 이미지 자료 (교실 환경+칭찬보상 쿠폰 등) → Quick Menu | Quick Menu | 공지사항 | 기술·가정 수업자료, 지금 바로 만나 보세요! | NEW 고등 독서평설 | 이번 달 티솔 하이라이트! | 사회 | 과학 | 연간지도계획ㆍ진도표(2022년) | 환경자료새학기 교실 환경 꾸미기 이미지 자료 (교실 환경+칭찬보상 쿠폰 등)",
+        "버튼 수: 50 → 47",
+        "링크 수: 182 → 169"
       ]
     }
   ],
