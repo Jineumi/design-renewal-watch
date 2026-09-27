@@ -1,33 +1,57 @@
 {
-  "date": "2026-09-26",
-  "generatedAt": "2026-09-26T02:26:26.234Z",
+  "date": "2026-09-27",
+  "generatedAt": "2026-09-27T02:21:28.603Z",
   "status": "needs-review",
   "policy": "배너·썸네일·이벤트 이미지는 제외하고, UI 구조와 탐색 흐름 변화만 기록합니다.",
-  "summary": "확인할 UI 구조 변화 1건",
+  "summary": "확인할 UI 구조 변화 2건",
   "records": [
     {
-      "id": "2026-09-26-jihak-high",
-      "siteId": "jihak-high",
+      "id": "2026-09-27-jihak-middle",
+      "siteId": "jihak-middle",
       "pageId": "main",
       "pageName": "메인",
-      "siteName": "티솔루션 고등",
-      "date": "2026-09-26",
+      "siteName": "티솔루션 중등",
+      "date": "2026-09-27",
       "type": "검토 필요",
       "changeType": "자동 구조 감지",
       "area": "UI Structure Signal",
       "asis": "이전 기준 캡쳐의 구조 시그니처",
       "tobe": "오늘 캡쳐의 구조 시그니처",
-      "comment": "자동 감지된 구조 신호: 주요 제목 구조: Quick Menu | Quick Menu | 공지사항 | 기술·가정 수업자료, 지금 바로 만나 보세요! | NEW 고등 독서평설 | 이번 달 티솔 하이라이트! → Quick Menu | Quick Menu | 공지사항 | 영어 수업자료, 지금 바로 만나 보세요! | NEW 고등 독서평설 | 이번 달 티솔 하이라이트! / 버튼 수: 36 → 39 / 링크 수: 169 → 182",
+      "comment": "자동 감지된 구조 신호: 주요 제목 구조: Quick Menu | Quick Menu | 공지사항 | 도덕 수업자료, 지금 바로 만나 보세요! | NEW 중학 독서평설 | 이번 달 티솔 하이라이트! → Quick Menu | Quick Menu | 공지사항 | 기술·가정 수업자료, 지금 바로 만나 보세요! | NEW 중학 독서평설 | 이번 달 티솔 하이라이트! / 링크 수: 149 → 150",
       "evidence": {
         "label": "오늘 감지 화면",
-        "currentFull": "./assets/evidence/2026-09-26/jihak-high-full.png",
-        "previousFull": "./assets/evidence/2026-09-25/jihak-high-full.png",
+        "currentFull": "./assets/evidence/2026-09-27/jihak-middle-full.png",
+        "previousFull": "",
         "note": "자동 구조 감지 시점의 전체 캡처입니다. 이후 영역 단위 crop으로 확장할 수 있습니다."
       },
       "reasons": [
-        "주요 제목 구조: Quick Menu | Quick Menu | 공지사항 | 기술·가정 수업자료, 지금 바로 만나 보세요! | NEW 고등 독서평설 | 이번 달 티솔 하이라이트! → Quick Menu | Quick Menu | 공지사항 | 영어 수업자료, 지금 바로 만나 보세요! | NEW 고등 독서평설 | 이번 달 티솔 하이라이트!",
-        "버튼 수: 36 → 39",
-        "링크 수: 169 → 182"
+        "주요 제목 구조: Quick Menu | Quick Menu | 공지사항 | 도덕 수업자료, 지금 바로 만나 보세요! | NEW 중학 독서평설 | 이번 달 티솔 하이라이트! → Quick Menu | Quick Menu | 공지사항 | 기술·가정 수업자료, 지금 바로 만나 보세요! | NEW 중학 독서평설 | 이번 달 티솔 하이라이트!",
+        "링크 수: 149 → 150"
+      ]
+    },
+    {
+      "id": "2026-09-27-jihak-high",
+      "siteId": "jihak-high",
+      "pageId": "main",
+      "pageName": "메인",
+      "siteName": "티솔루션 고등",
+      "date": "2026-09-27",
+      "type": "검토 필요",
+      "changeType": "자동 구조 감지",
+      "area": "UI Structure Signal",
+      "asis": "이전 기준 캡쳐의 구조 시그니처",
+      "tobe": "오늘 캡쳐의 구조 시그니처",
+      "comment": "자동 감지된 구조 신호: 주요 제목 구조: Quick Menu | Quick Menu | 공지사항 | 영어 수업자료, 지금 바로 만나 보세요! | NEW 고등 독서평설 | 이번 달 티솔 하이라이트! → Quick Menu | Quick Menu | 공지사항 | 진로와 직업 수업자료, 지금 바로 만나 보세요! | NEW 고등 독서평설 | 이번 달 티솔 하이라이트! / 버튼 수: 39 → 36 / 링크 수: 182 → 168",
+      "evidence": {
+        "label": "오늘 감지 화면",
+        "currentFull": "./assets/evidence/2026-09-27/jihak-high-full.png",
+        "previousFull": "./assets/evidence/2026-09-26/jihak-high-full.png",
+        "note": "자동 구조 감지 시점의 전체 캡처입니다. 이후 영역 단위 crop으로 확장할 수 있습니다."
+      },
+      "reasons": [
+        "주요 제목 구조: Quick Menu | Quick Menu | 공지사항 | 영어 수업자료, 지금 바로 만나 보세요! | NEW 고등 독서평설 | 이번 달 티솔 하이라이트! → Quick Menu | Quick Menu | 공지사항 | 진로와 직업 수업자료, 지금 바로 만나 보세요! | NEW 고등 독서평설 | 이번 달 티솔 하이라이트!",
+        "버튼 수: 39 → 36",
+        "링크 수: 182 → 168"
       ]
     }
   ],
