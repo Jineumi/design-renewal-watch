@@ -1,81 +1,32 @@
 {
-  "date": "2026-10-02",
-  "generatedAt": "2026-10-02T03:00:17.691Z",
+  "date": "2026-10-03",
+  "generatedAt": "2026-10-03T02:47:09.706Z",
   "status": "needs-review",
   "policy": "배너·썸네일·이벤트 이미지는 제외하고, UI 구조와 탐색 흐름 변화만 기록합니다.",
-  "summary": "확인할 UI 구조 변화 3건",
+  "summary": "확인할 UI 구조 변화 1건",
   "records": [
     {
-      "id": "2026-10-02-mteacher",
-      "siteId": "mteacher",
-      "pageId": "main",
-      "pageName": "메인",
-      "siteName": "엠티처 초등",
-      "date": "2026-10-02",
-      "type": "검토 필요",
-      "changeType": "자동 구조 감지",
-      "area": "UI Structure Signal",
-      "asis": "이전 기준 캡쳐의 구조 시그니처",
-      "tobe": "오늘 캡쳐의 구조 시그니처",
-      "comment": "자동 감지된 구조 신호: 상단 탐색 구조: Quick Menu 아이디 저장 로그인 회원가입 ID / PW 찾기 나의 즐겨찾기 스크랩 M드라이브 월간퀴즈 이벤트 툴박스 타이머 랜덤뽑기 모둠만들기 점수판 메모 AI클래스 AI 학습지 퀴즈온 모둠활동 보드 | 나의 즐겨찾기 스크랩 M드라이브 | 월간퀴즈 이벤트 | 툴박스 타이머 랜덤뽑기 모둠만들기 점수판 메모 AI클래스 AI 학습지 퀴즈온 모둠활동 보드 | 툴박스 타이머 랜덤뽑기 모둠만들기 점수판 메모 | 타이머 랜덤뽑기 모둠만들기 점수판 메모 | 타이머 | 디지털 아날로그 파이 촛불 모래시계 → Quick Menu 아이디 저장 로그인 회원가입 ID / PW 찾기 나의 즐겨찾기 스크랩 M드라이브 월간퀴즈 이벤트 툴박스 타이머 랜덤뽑기 모둠만들기 점수판 메모 AI클래스 AI 학습지 퀴즈온 모아보드 | 나의 즐겨찾기 스크랩 M드라이브 | 월간퀴즈 이벤트 | 툴박스 타이머 랜덤뽑기 모둠만들기 점수판 메모 AI클래스 AI 학습지 퀴즈온 모아보드 | 툴박스 타이머 랜덤뽑기 모둠만들기 점수판 메모 | 타이머 랜덤뽑기 모둠만들기 점수판 메모 | 타이머 | 디지털 아날로그 파이 촛불 모래시계 / 버튼 수: 87 → 89 / 링크 수: 374 → 379",
-      "evidence": {
-        "label": "오늘 감지 화면",
-        "currentFull": "./assets/evidence/2026-10-02/mteacher-full.png",
-        "previousFull": "./assets/evidence/2026-10-01/mteacher-full.png",
-        "note": "자동 구조 감지 시점의 전체 캡처입니다. 이후 영역 단위 crop으로 확장할 수 있습니다."
-      },
-      "reasons": [
-        "상단 탐색 구조: Quick Menu 아이디 저장 로그인 회원가입 ID / PW 찾기 나의 즐겨찾기 스크랩 M드라이브 월간퀴즈 이벤트 툴박스 타이머 랜덤뽑기 모둠만들기 점수판 메모 AI클래스 AI 학습지 퀴즈온 모둠활동 보드 | 나의 즐겨찾기 스크랩 M드라이브 | 월간퀴즈 이벤트 | 툴박스 타이머 랜덤뽑기 모둠만들기 점수판 메모 AI클래스 AI 학습지 퀴즈온 모둠활동 보드 | 툴박스 타이머 랜덤뽑기 모둠만들기 점수판 메모 | 타이머 랜덤뽑기 모둠만들기 점수판 메모 | 타이머 | 디지털 아날로그 파이 촛불 모래시계 → Quick Menu 아이디 저장 로그인 회원가입 ID / PW 찾기 나의 즐겨찾기 스크랩 M드라이브 월간퀴즈 이벤트 툴박스 타이머 랜덤뽑기 모둠만들기 점수판 메모 AI클래스 AI 학습지 퀴즈온 모아보드 | 나의 즐겨찾기 스크랩 M드라이브 | 월간퀴즈 이벤트 | 툴박스 타이머 랜덤뽑기 모둠만들기 점수판 메모 AI클래스 AI 학습지 퀴즈온 모아보드 | 툴박스 타이머 랜덤뽑기 모둠만들기 점수판 메모 | 타이머 랜덤뽑기 모둠만들기 점수판 메모 | 타이머 | 디지털 아날로그 파이 촛불 모래시계",
-        "버튼 수: 87 → 89",
-        "링크 수: 374 → 379"
-      ]
-    },
-    {
-      "id": "2026-10-02-jihak-middle",
+      "id": "2026-10-03-jihak-middle",
       "siteId": "jihak-middle",
       "pageId": "main",
       "pageName": "메인",
       "siteName": "티솔루션 중등",
-      "date": "2026-10-02",
+      "date": "2026-10-03",
       "type": "검토 필요",
       "changeType": "자동 구조 감지",
       "area": "UI Structure Signal",
       "asis": "이전 기준 캡쳐의 구조 시그니처",
       "tobe": "오늘 캡쳐의 구조 시그니처",
-      "comment": "자동 감지된 구조 신호: 주요 제목 구조: Quick Menu | Quick Menu | 공지사항 | 도덕 수업자료, 지금 바로 만나 보세요! | NEW 중학 독서평설 | 이번 달 티솔 하이라이트! → Quick Menu | Quick Menu | 공지사항 | 체육 수업자료, 지금 바로 만나 보세요! | NEW 중학 독서평설 | 이번 달 티솔 하이라이트! / 링크 수: 146 → 145",
+      "comment": "자동 감지된 구조 신호: 주요 제목 구조: Quick Menu | Quick Menu | 공지사항 | 체육 수업자료, 지금 바로 만나 보세요! | NEW 중학 독서평설 | 이번 달 티솔 하이라이트! → Quick Menu | Quick Menu | 공지사항 | 미술 수업자료, 지금 바로 만나 보세요! | NEW 중학 독서평설 | 이번 달 티솔 하이라이트! / 링크 수: 145 → 147",
       "evidence": {
         "label": "오늘 감지 화면",
-        "currentFull": "./assets/evidence/2026-10-02/jihak-middle-full.png",
-        "previousFull": "./assets/evidence/2026-10-01/jihak-middle-full.png",
+        "currentFull": "./assets/evidence/2026-10-03/jihak-middle-full.png",
+        "previousFull": "./assets/evidence/2026-10-02/jihak-middle-full.png",
         "note": "자동 구조 감지 시점의 전체 캡처입니다. 이후 영역 단위 crop으로 확장할 수 있습니다."
       },
       "reasons": [
-        "주요 제목 구조: Quick Menu | Quick Menu | 공지사항 | 도덕 수업자료, 지금 바로 만나 보세요! | NEW 중학 독서평설 | 이번 달 티솔 하이라이트! → Quick Menu | Quick Menu | 공지사항 | 체육 수업자료, 지금 바로 만나 보세요! | NEW 중학 독서평설 | 이번 달 티솔 하이라이트!",
-        "링크 수: 146 → 145"
-      ]
-    },
-    {
-      "id": "2026-10-02-jihak-high",
-      "siteId": "jihak-high",
-      "pageId": "main",
-      "pageName": "메인",
-      "siteName": "티솔루션 고등",
-      "date": "2026-10-02",
-      "type": "검토 필요",
-      "changeType": "자동 구조 감지",
-      "area": "UI Structure Signal",
-      "asis": "이전 기준 캡쳐의 구조 시그니처",
-      "tobe": "오늘 캡쳐의 구조 시그니처",
-      "comment": "자동 감지된 구조 신호: 주요 제목 구조: Quick Menu | Quick Menu | 공지사항 | 수학 수업자료, 지금 바로 만나 보세요! | NEW 고등 독서평설 | 이번 달 티솔 하이라이트! → Quick Menu | Quick Menu | 공지사항 | 국어 수업자료, 지금 바로 만나 보세요! | NEW 고등 독서평설 | 이번 달 티솔 하이라이트! / 링크 수: 190 → 185",
-      "evidence": {
-        "label": "오늘 감지 화면",
-        "currentFull": "./assets/evidence/2026-10-02/jihak-high-full.png",
-        "previousFull": "./assets/evidence/2026-10-01/jihak-high-full.png",
-        "note": "자동 구조 감지 시점의 전체 캡처입니다. 이후 영역 단위 crop으로 확장할 수 있습니다."
-      },
-      "reasons": [
-        "주요 제목 구조: Quick Menu | Quick Menu | 공지사항 | 수학 수업자료, 지금 바로 만나 보세요! | NEW 고등 독서평설 | 이번 달 티솔 하이라이트! → Quick Menu | Quick Menu | 공지사항 | 국어 수업자료, 지금 바로 만나 보세요! | NEW 고등 독서평설 | 이번 달 티솔 하이라이트!",
-        "링크 수: 190 → 185"
+        "주요 제목 구조: Quick Menu | Quick Menu | 공지사항 | 체육 수업자료, 지금 바로 만나 보세요! | NEW 중학 독서평설 | 이번 달 티솔 하이라이트! → Quick Menu | Quick Menu | 공지사항 | 미술 수업자료, 지금 바로 만나 보세요! | NEW 중학 독서평설 | 이번 달 티솔 하이라이트!",
+        "링크 수: 145 → 147"
       ]
     }
   ],
