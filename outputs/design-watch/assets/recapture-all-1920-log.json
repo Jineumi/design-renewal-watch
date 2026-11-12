@@ -7,7 +7,7 @@
     "ok": true,
     "cleanFile": "vivasam-full-clean.png",
     "legacyFile": "vivasam-full.png",
-    "currentFile": "evidence/2026-11-11/vivasam-full.png",
+    "currentFile": "evidence/2026-11-12/vivasam-full.png",
     "closed": [
       "7일간 보지 않기"
     ],
@@ -21,17 +21,22 @@
       "visibleDialogs": 0,
       "navSignature": "교과 자료 New 평가 자료 New 문제은행 학교 자율 시간 New 에듀테크 테마관 창체 New 샘스토리 수업 연구소 쉬는 시간 비바샘터 | 교과 자료 New 평가 자료 New 문제은행 학교 자율 시간 New 에듀테크 테마관 창체 New 샘스토리 수업 연구소 쉬는 시간 비바샘터 | 교과 자료 New 평가 자료 New 문제은행 학교 자율 시간 New 에듀테크 테마관 창체 New 샘스토리 수업 연구소 쉬는 시간 비바샘터 | 전체 메뉴 한 눈에 보기 교과 자료 1학년 2학년 3학년 4학년 5학년 6학년 인정 평가 자료 1학년 2학년 3학년 4학년 5학년 6학년 문제은행 AI 스마트 평가 출제 마법사 학교 자율 시간 학교 자율 시간 에듀테 | 전체 메뉴 한 눈에 보기 교과 자료 1학년 2학년 3학년 4학년 5학년 6학년 인정 평가 자료 1학년 2학년 3학년 4학년 5학년 6학년 문제은행 AI 스마트 평가 출제 마법사 학교 자율 시간 학교 자율 시간 에듀테 | 교과 자료 1학년 2학년 3학년 4학년 5학년 6학년 인정 평가 자료 1학년 2학년 3학년 4학년 5학년 6학년 문제은행 AI 스마트 평가 출제 마법사 학교 자율 시간 학교 자율 시간 에듀테크 테마관 22 생생한교실",
       "headingSignature": "전체 메뉴 한 눈에 보기 | 우리반 수업에 바로 활용해 보세요! | [연수원] 업무 경감 및 학급 경영을 위한 치트키! | 우리반 전용 에듀테크 수업 자료 | 문해력 어휘지수 | 영어 기초학력+ | 비바샘 미술관 | 수학 마을 | 실감형 사회관 | 수학 디지털 교구 | 실감형 과학관 | 비바샘 음악관",
-      "buttonCount": 77,
-      "linkCount": 398,
-      "fixedElementCount": 1
+      "buttonCount": 80,
+      "linkCount": 404,
+      "fixedElementCount": 2
     },
     "structure": {
-      "changed": false,
+      "changed": true,
       "reasons": [
-        "링크 수: 400 → 398"
+        "버튼 수: 77 → 80",
+        "링크 수: 398 → 404",
+        "고정/플로팅 요소 수: 1 → 2"
       ]
     },
-    "evidence": null
+    "evidence": {
+      "currentFull": "evidence/2026-11-12/vivasam-full.png",
+      "previousFull": ""
+    }
   },
   {
     "id": "tsherpa",
@@ -59,7 +64,7 @@
     "ok": true,
     "cleanFile": "mteacher-full-clean.png",
     "legacyFile": "mteacher-full.png",
-    "currentFile": "evidence/2026-11-11/mteacher-full.png",
+    "currentFile": "evidence/2026-11-12/mteacher-full.png",
     "closed": [
       "닫기 button size-md type-white closePop"
     ],
@@ -79,9 +84,7 @@
     },
     "structure": {
       "changed": false,
-      "reasons": [
-        "링크 수: 388 → 390"
-      ]
+      "reasons": []
     },
     "evidence": null
   },
@@ -93,7 +96,7 @@
     "ok": true,
     "cleanFile": "jihak-full-clean.png",
     "legacyFile": "jihak-full.png",
-    "currentFile": "evidence/2026-11-11/jihak-full.png",
+    "currentFile": "evidence/2026-11-12/jihak-full.png",
     "closed": [],
     "state": {
       "title": "지학사 수업지원플랫폼｜티솔루션",
@@ -111,9 +114,7 @@
     },
     "structure": {
       "changed": false,
-      "reasons": [
-        "링크 수: 160 → 162"
-      ]
+      "reasons": []
     },
     "evidence": null
   },
@@ -125,7 +126,7 @@
     "ok": true,
     "cleanFile": "vivasam-secondary-full-clean.png",
     "legacyFile": "vivasam-secondary-full.png",
-    "currentFile": "evidence/2026-11-11/vivasam-secondary-full.png",
+    "currentFile": "evidence/2026-11-12/vivasam-secondary-full.png",
     "closed": [
       "btn_close",
       "btn_close",
@@ -142,19 +143,25 @@
       "scrollWidth": 1920,
       "scrollHeight": 1556,
       "visibleDialogs": 1,
-      "navSignature": "설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 | NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터 | 중학 고등 교과서별 공통 자료한 번에 다운로드 받기 국어 영어 수학 사회 역사 도덕 과학 한문 기술·가정 정보 음악 미술 체육 진로와 직업 학교 자율 시간 추천 교과서를 확인해 보세요! 학교 자율 시간 22 개정 국",
+      "navSignature": "초등 중고등 연수원 비바클래스 비상교과서 전시관 AI 디지털 교육자료 지원센터 더보기 로그인 회원가입 고객센터 비바샘 검색 11.12 세계 폐렴의 날 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게  | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 | NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터",
       "headingSignature": "비바샘 | 살아있는 수업 | 계기 교육 | 온라인 수업 | 자유학기 수업 | 주제별 교육 | 샘스토리 | 라이브러리 | 샘스토리 | 살아있는 수업 | 온라인 수업 | 자유학기 수업",
-      "buttonCount": 27,
-      "linkCount": 568,
-      "fixedElementCount": 2
+      "buttonCount": 29,
+      "linkCount": 572,
+      "fixedElementCount": 3
     },
     "structure": {
-      "changed": false,
+      "changed": true,
       "reasons": [
-        "링크 수: 572 → 568"
+        "상단 탐색 구조: 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 | NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터 | 중학 고등 교과서별 공통 자료한 번에 다운로드 받기 국어 영어 수학 사회 역사 도덕 과학 한문 기술·가정 정보 음악 미술 체육 진로와 직업 학교 자율 시간 추천 교과서를 확인해 보세요! 학교 자율 시간 22 개정 국 → 초등 중고등 연수원 비바클래스 비상교과서 전시관 AI 디지털 교육자료 지원센터 더보기 로그인 회원가입 고객센터 비바샘 검색 11.12 세계 폐렴의 날 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게  | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 | NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터",
+        "버튼 수: 27 → 29",
+        "링크 수: 568 → 572",
+        "고정/플로팅 요소 수: 2 → 3"
       ]
     },
-    "evidence": null
+    "evidence": {
+      "currentFull": "evidence/2026-11-12/vivasam-secondary-full.png",
+      "previousFull": ""
+    }
   },
   {
     "id": "tsherpa-secondary",
@@ -173,7 +180,7 @@
     "ok": true,
     "cleanFile": "mteacher-middle-full-clean.png",
     "legacyFile": "mteacher-middle-full.png",
-    "currentFile": "evidence/2026-11-11/mteacher-middle-full.png",
+    "currentFile": "evidence/2026-11-12/mteacher-middle-full.png",
     "closed": [
       "닫기 button size-md type-white closePop"
     ],
@@ -188,12 +195,14 @@
       "navSignature": "Quick Menu 아이디 저장 로그인 회원가입 ID / PW 찾기 나의 즐겨찾기 스크랩 M드라이브 월간퀴즈 이벤트 툴박스 타이머 랜덤뽑기 모둠만들기 점수판 메모 AI클래스 AI 학습지 퀴즈온 모아보드 | 나의 즐겨찾기 스크랩 M드라이브 | 월간퀴즈 이벤트 | 툴박스 타이머 랜덤뽑기 모둠만들기 점수판 메모 AI클래스 AI 학습지 퀴즈온 모아보드 | 툴박스 타이머 랜덤뽑기 모둠만들기 점수판 메모 | 타이머 랜덤뽑기 모둠만들기 점수판 메모 | 타이머 | 디지털 아날로그 파이 촛불 모래시계",
       "headingSignature": "아이엠티처 로그인 연동 종료 안내 | 엠티처 바로 접속 | 엠티처를 가장 빠르게 이용하는 방법 | 설치 방법 | 내 교과서 | 자주 찾는 질문 | 1:1 문의 | 서비스 안내 | 전국 지사 안내 | 카카오톡 상담 | 전화문의",
       "buttonCount": 53,
-      "linkCount": 178,
+      "linkCount": 179,
       "fixedElementCount": 2
     },
     "structure": {
       "changed": false,
-      "reasons": []
+      "reasons": [
+        "링크 수: 178 → 179"
+      ]
     },
     "evidence": null
   },
@@ -205,7 +214,7 @@
     "ok": true,
     "cleanFile": "mteacher-high-full-clean.png",
     "legacyFile": "mteacher-high-full.png",
-    "currentFile": "evidence/2026-11-11/mteacher-high-full.png",
+    "currentFile": "evidence/2026-11-12/mteacher-high-full.png",
     "closed": [
       "닫기 button size-md type-white closePop"
     ],
@@ -220,12 +229,14 @@
       "navSignature": "Quick Menu 아이디 저장 로그인 회원가입 ID / PW 찾기 나의 즐겨찾기 스크랩 M드라이브 월간퀴즈 이벤트 툴박스 타이머 랜덤뽑기 모둠만들기 점수판 메모 AI클래스 AI 학습지 퀴즈온 모아보드 | 나의 즐겨찾기 스크랩 M드라이브 | 월간퀴즈 이벤트 | 툴박스 타이머 랜덤뽑기 모둠만들기 점수판 메모 AI클래스 AI 학습지 퀴즈온 모아보드 | 툴박스 타이머 랜덤뽑기 모둠만들기 점수판 메모 | 타이머 랜덤뽑기 모둠만들기 점수판 메모 | 타이머 | 디지털 아날로그 파이 촛불 모래시계",
       "headingSignature": "아이엠티처 로그인 연동 종료 안내 | 엠티처 바로 접속 | 엠티처를 가장 빠르게 이용하는 방법 | 설치 방법 | 내 교과서 | 자주 찾는 질문 | 1:1 문의 | 서비스 안내 | 전국 지사 안내 | 카카오톡 상담 | 전화문의",
       "buttonCount": 53,
-      "linkCount": 183,
+      "linkCount": 184,
       "fixedElementCount": 2
     },
     "structure": {
       "changed": false,
-      "reasons": []
+      "reasons": [
+        "링크 수: 183 → 184"
+      ]
     },
     "evidence": null
   },
@@ -237,7 +248,7 @@
     "ok": true,
     "cleanFile": "jihak-middle-full-clean.png",
     "legacyFile": "jihak-middle-full.png",
-    "currentFile": "evidence/2026-11-11/jihak-middle-full.png",
+    "currentFile": "evidence/2026-11-12/jihak-middle-full.png",
     "closed": [],
     "state": {
       "title": "지학사 수업지원플랫폼｜티솔루션",
@@ -267,7 +278,7 @@
     "ok": true,
     "cleanFile": "jihak-high-full-clean.png",
     "legacyFile": "jihak-high-full.png",
-    "currentFile": "evidence/2026-11-11/jihak-high-full.png",
+    "currentFile": "evidence/2026-11-12/jihak-high-full.png",
     "closed": [],
     "state": {
       "title": "지학사 수업지원플랫폼｜티솔루션",
