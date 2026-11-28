@@ -7,7 +7,7 @@
     "ok": true,
     "cleanFile": "vivasam-full-clean.png",
     "legacyFile": "vivasam-full.png",
-    "currentFile": "evidence/2026-11-27/vivasam-full.png",
+    "currentFile": "evidence/2026-11-28/vivasam-full.png",
     "closed": [
       "7일간 보지 않기"
     ],
@@ -57,7 +57,7 @@
     "ok": true,
     "cleanFile": "mteacher-full-clean.png",
     "legacyFile": "mteacher-full.png",
-    "currentFile": "evidence/2026-11-27/mteacher-full.png",
+    "currentFile": "evidence/2026-11-28/mteacher-full.png",
     "closed": [],
     "state": {
       "title": "엠티처 초등-미래엔교수활동플랫폼",
@@ -87,7 +87,7 @@
     "ok": true,
     "cleanFile": "jihak-full-clean.png",
     "legacyFile": "jihak-full.png",
-    "currentFile": "evidence/2026-11-27/jihak-full.png",
+    "currentFile": "evidence/2026-11-28/jihak-full.png",
     "closed": [],
     "state": {
       "title": "지학사 수업지원플랫폼｜티솔루션",
@@ -97,7 +97,7 @@
       "scrollWidth": 1920,
       "scrollHeight": 4049,
       "visibleDialogs": 0,
-      "navSignature": "초등 중학 고등 티솔루션 바로 접속 교과서 홍보관 AI 디지털 교육자료 로그인 나의 교실 1:1 문의 내역 이벤트 고객센터 12월 3일 소비자의 날 (고학년) 교과활동 평가자료 창의적 체험활동 학교 자율시간 게임 활 | 초등 중학 고등 티솔루션 바로 접속 교과서 홍보관 AI 디지털 교육자료 로그인 나의 교실 1:1 문의 내역 이벤트 고객센터 | 교과활동 평가자료 창의적 체험활동 학교 자율시간 게임 활동 수업 기초학력·아침활동 학급운영 | 교과활동 평가자료 창의적 체험활동 학교 자율시간 게임 활동 수업 기초학력·아침활동 학급운영",
+      "navSignature": "초등 중학 고등 티솔루션 바로 접속 교과서 홍보관 AI 디지털 교육자료 로그인 나의 교실 1:1 문의 내역 이벤트 고객센터 12월 3일 소비자의 날(저학년) 교과활동 평가자료 창의적 체험활동 학교 자율시간 게임 활동 | 초등 중학 고등 티솔루션 바로 접속 교과서 홍보관 AI 디지털 교육자료 로그인 나의 교실 1:1 문의 내역 이벤트 고객센터 | 교과활동 평가자료 창의적 체험활동 학교 자율시간 게임 활동 수업 기초학력·아침활동 학급운영 | 교과활동 평가자료 창의적 체험활동 학교 자율시간 게임 활동 수업 기초학력·아침활동 학급운영",
       "headingSignature": "Quick Menu | Quick Menu | 공지사항 | 신중하게 골랐어요! | 특화자료실 | 이번 달 많이 찾은 자료 TOP3 | 신규 자료 NEW | 티솔루션 협업 자료 | NEW 초등 독서평설 | 이번 달 티솔 하이라이트!",
       "buttonCount": 13,
       "linkCount": 161,
@@ -106,7 +106,7 @@
     "structure": {
       "changed": false,
       "reasons": [
-        "링크 수: 159 → 161"
+        "상단 탐색 구조: 초등 중학 고등 티솔루션 바로 접속 교과서 홍보관 AI 디지털 교육자료 로그인 나의 교실 1:1 문의 내역 이벤트 고객센터 12월 3일 소비자의 날 (고학년) 교과활동 평가자료 창의적 체험활동 학교 자율시간 게임 활 | 초등 중학 고등 티솔루션 바로 접속 교과서 홍보관 AI 디지털 교육자료 로그인 나의 교실 1:1 문의 내역 이벤트 고객센터 | 교과활동 평가자료 창의적 체험활동 학교 자율시간 게임 활동 수업 기초학력·아침활동 학급운영 | 교과활동 평가자료 창의적 체험활동 학교 자율시간 게임 활동 수업 기초학력·아침활동 학급운영 → 초등 중학 고등 티솔루션 바로 접속 교과서 홍보관 AI 디지털 교육자료 로그인 나의 교실 1:1 문의 내역 이벤트 고객센터 12월 3일 소비자의 날(저학년) 교과활동 평가자료 창의적 체험활동 학교 자율시간 게임 활동 | 초등 중학 고등 티솔루션 바로 접속 교과서 홍보관 AI 디지털 교육자료 로그인 나의 교실 1:1 문의 내역 이벤트 고객센터 | 교과활동 평가자료 창의적 체험활동 학교 자율시간 게임 활동 수업 기초학력·아침활동 학급운영 | 교과활동 평가자료 창의적 체험활동 학교 자율시간 게임 활동 수업 기초학력·아침활동 학급운영"
       ]
     },
     "evidence": null
@@ -119,7 +119,7 @@
     "ok": true,
     "cleanFile": "vivasam-secondary-full-clean.png",
     "legacyFile": "vivasam-secondary-full.png",
-    "currentFile": "evidence/2026-11-27/vivasam-secondary-full.png",
+    "currentFile": "evidence/2026-11-28/vivasam-secondary-full.png",
     "closed": [
       "btn_close",
       "btn_close",
@@ -136,23 +136,19 @@
       "scrollWidth": 1920,
       "scrollHeight": 1606,
       "visibleDialogs": 1,
-      "navSignature": "초등 중고등 연수원 비바클래스 비상교과서 전시관 AI 디지털 교육자료 지원센터 서비스 바로가기 로그인 회원가입 고객센터 비바샘 검색 11.27 누리호 4차 발사 성공 설정 로그인 후 내 교과 바로가기를 설정하고 수업 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 | NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터",
+      "navSignature": "초등 중고등 연수원 비바클래스 비상교과서 전시관 AI 디지털 교육자료 지원센터 서비스 바로가기 로그인 회원가입 고객센터 비바샘 검색 11.28 국내 최초 플라스틱(PVC) 공장 준... 설정 로그인 후 내 교과 바로 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 | NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터",
       "headingSignature": "비바샘 | 살아있는 수업 | 계기 교육 | 온라인 수업 | 자유학기 수업 | 주제별 교육 | 샘스토리 | 라이브러리 | 샘스토리 | 살아있는 수업 | 온라인 수업 | 자유학기 수업",
       "buttonCount": 30,
       "linkCount": 590,
       "fixedElementCount": 4
     },
     "structure": {
-      "changed": true,
+      "changed": false,
       "reasons": [
-        "상단 탐색 구조: 초등 중고등 연수원 비바클래스 비상교과서 전시관 AI 디지털 교육자료 지원센터 서비스 바로가기 로그인 회원가입 고객센터 비바샘 검색 11.26 마도 1호선, 800년 만에 복원 설정 로그인 후 내 교과 바로가기를 설 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 | NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터 → 초등 중고등 연수원 비바클래스 비상교과서 전시관 AI 디지털 교육자료 지원센터 서비스 바로가기 로그인 회원가입 고객센터 비바샘 검색 11.27 누리호 4차 발사 성공 설정 로그인 후 내 교과 바로가기를 설정하고 수업 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 | NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터",
-        "링크 수: 587 → 590"
+        "상단 탐색 구조: 초등 중고등 연수원 비바클래스 비상교과서 전시관 AI 디지털 교육자료 지원센터 서비스 바로가기 로그인 회원가입 고객센터 비바샘 검색 11.27 누리호 4차 발사 성공 설정 로그인 후 내 교과 바로가기를 설정하고 수업 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 | NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터 → 초등 중고등 연수원 비바클래스 비상교과서 전시관 AI 디지털 교육자료 지원센터 서비스 바로가기 로그인 회원가입 고객센터 비바샘 검색 11.28 국내 최초 플라스틱(PVC) 공장 준... 설정 로그인 후 내 교과 바로 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 | 설정 로그인 후 내 교과 바로가기를 설정하고 수업 자료를 빠르게 확인하세요. 내 교과 | NEW 22 개정 교과서 자료 문제은행 NEW 진로진학 창체 · 수업연구 에듀테크 테마관 비바샘터"
       ]
     },
-    "evidence": {
-      "currentFull": "evidence/2026-11-27/vivasam-secondary-full.png",
-      "previousFull": "evidence/2026-11-26/vivasam-secondary-full.png"
-    }
+    "evidence": null
   },
   {
     "id": "tsherpa-secondary",
@@ -171,7 +167,7 @@
     "ok": true,
     "cleanFile": "mteacher-middle-full-clean.png",
     "legacyFile": "mteacher-middle-full.png",
-    "currentFile": "evidence/2026-11-27/mteacher-middle-full.png",
+    "currentFile": "evidence/2026-11-28/mteacher-middle-full.png",
     "closed": [
       "닫기 button size-md type-white closePop"
     ],
@@ -190,17 +186,10 @@
       "fixedElementCount": 2
     },
     "structure": {
-      "changed": true,
-      "reasons": [
-        "버튼 수: 56 → 63",
-        "링크 수: 179 → 164",
-        "잔여 팝업/레이어 수: 0 → 1"
-      ]
+      "changed": false,
+      "reasons": []
     },
-    "evidence": {
-      "currentFull": "evidence/2026-11-27/mteacher-middle-full.png",
-      "previousFull": ""
-    }
+    "evidence": null
   },
   {
     "id": "mteacher-high",
@@ -210,7 +199,7 @@
     "ok": true,
     "cleanFile": "mteacher-high-full-clean.png",
     "legacyFile": "mteacher-high-full.png",
-    "currentFile": "evidence/2026-11-27/mteacher-high-full.png",
+    "currentFile": "evidence/2026-11-28/mteacher-high-full.png",
     "closed": [
       "닫기 button size-md type-white closePop"
     ],
@@ -229,17 +218,10 @@
       "fixedElementCount": 2
     },
     "structure": {
-      "changed": true,
-      "reasons": [
-        "버튼 수: 56 → 62",
-        "링크 수: 184 → 166",
-        "잔여 팝업/레이어 수: 0 → 1"
-      ]
+      "changed": false,
+      "reasons": []
     },
-    "evidence": {
-      "currentFull": "evidence/2026-11-27/mteacher-high-full.png",
-      "previousFull": ""
-    }
+    "evidence": null
   },
   {
     "id": "jihak-middle",
@@ -249,7 +231,7 @@
     "ok": true,
     "cleanFile": "jihak-middle-full-clean.png",
     "legacyFile": "jihak-middle-full.png",
-    "currentFile": "evidence/2026-11-27/jihak-middle-full.png",
+    "currentFile": "evidence/2026-11-28/jihak-middle-full.png",
     "closed": [],
     "state": {
       "title": "지학사 수업지원플랫폼｜티솔루션",
@@ -279,7 +261,7 @@
     "ok": true,
     "cleanFile": "jihak-high-full-clean.png",
     "legacyFile": "jihak-high-full.png",
-    "currentFile": "evidence/2026-11-27/jihak-high-full.png",
+    "currentFile": "evidence/2026-11-28/jihak-high-full.png",
     "closed": [],
     "state": {
       "title": "지학사 수업지원플랫폼｜티솔루션",
